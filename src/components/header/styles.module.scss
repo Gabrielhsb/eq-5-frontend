@@ -1,0 +1,35 @@
+.headerContainer {
+  background: var(--white);
+  height: 2rem;
+  display: flex;
+  align-items: center;
+ 
+  padding: 2rem 4rem;
+  border-bottom: 1px solid var(--gray-100)
+
+  p {
+    margin-left: 2rem;
+    padding: 0.25rem 0 0.25rem 2rem;
+    border-left: 1px solid var(--gray-100);
+  }
+
+  img {
+    height: 30px;
+    justify-content: flex-start;
+    margin-right: 60%;
+    
+  }
+  a {
+     margin-left: 30px;
+     font-family: 'Nunito';
+     text-decoration: none;
+     color: #1A1A1A;
+  }
+
+}
+
+hr {
+  height:2px;
+  background-color: #E6E8FF;
+  border-width: 0px;
+}

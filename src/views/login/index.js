@@ -1,14 +1,24 @@
+import { Footer } from '../../components/footer';
 import {LoginCard} from '../../components/login-card';
-import Grid from '@material-ui/core/Grid';
+import {SignUpCard} from '../../components/sign-up-card';
+
+import styles from './styles.module.scss';
+
 export default function Login() {
   return (
     <div >
-      <Grid container spacing={1}>
-      <Grid item xs>
-          <LoginCard/>
-        </Grid>
-      </Grid>
-      
+      <div className={styles.container}>
+          <div className={styles.loginCard}>
+              <LoginCard/>
+          </div>
+          <div className={styles.signUpCard}>
+              <SignUpCard/>
+          </div>
+      </div>
+      <div>
+        <Footer/>
+      </div>
     </div>
+    
   )
 }

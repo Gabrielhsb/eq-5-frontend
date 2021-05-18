@@ -1,24 +1,33 @@
 import { Card } from "@material-ui/core";
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
-
+import  background  from '../../images/signUp.png';
 const useStyles = makeStyles({
   root: {
-   width: 400,
-   height: 483,
+   width: 500,
+   height: 604,
    display: 'flex',
    justifyContent: 'center',
-   fontFamily: 'Nunito',
+   fontFamily: 'Nunito' ,
    alignItems: 'center',
    textAlign: 'center',
+   background: '#E6E8FF',
    borderRadius: 20,
+   backgroundImage: `url(${background})`
+   
   },
   title: {
     fontSize: 35,
-    color: '#6866CC',
+    color: '#000000',
     fontFamily: 'Nunito' ,
     fontWeight: 400,
     
+  },
+  subTitle: {
+    color: '#000000',
+    fontFamily: 'Nunito' ,
+    fontWeight: 400,
+    paddingTop: 6,
   },
   input: {
     border: '2px solid #6866CC',
@@ -32,11 +41,12 @@ const useStyles = makeStyles({
     paddingTop: 10,
   },
   button: {
-    background: '#6866CC',
+    background: '#039AED',
     color: '#fff',
-    width: 120,
-    height: 43,
+    width: 200,
+    height: 70,
     borderRadius: 40,
+    fontSize: 18,
     boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.08)',
     border: 0,
     marginTop: 50,
@@ -49,28 +59,16 @@ const useStyles = makeStyles({
 
 });
 
-export function LoginCard () {
+export function SignUpCard () {
   const classes = useStyles();
-
   return (
     <div>
     <Card className={classes.root} >
       <CardContent>
         <div >
-          <h1 className={classes.title}>Fazer Login</h1>
-          <p>Acesse a sua conta</p>
-          <form className={classes.form}>
-            <div className={classes.divLabel}>
-              <label >Email</label><br/>
-              <input className={classes.input}  type="email" id="email" /><br/>
-            </div>
-            <div className={classes.divLabel}>
-              <label >Senha</label><br/>
-              <input className={classes.input}  type="password" id="password"/><br/>
-            </div>
-            
-            <input className={classes.button} type="submit" value="ENTRAR"/>
-          </form>
+          <h1 className={classes.title}>Seja bem vindo</h1>
+          <h2 className={classes.subTitle}>Ainda não tem uma conta? <br/>Crie uma conta</h2>
+          <button className={classes.button} >CRIAR CONTA</button>
         </div>
       </CardContent>
     </Card>

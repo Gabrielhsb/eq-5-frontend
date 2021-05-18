@@ -1,0 +1,21 @@
+
+.container {
+ height: 800px;
+ overflow: hidden;
+}
+
+.loginCard {
+  position: absolute;
+  left: 600px;
+  top: 285px;
+  z-index: 2;
+}
+
+.signUpCard {
+  position: relative;
+  top: 100px;
+  left: 900px;
+  z-index: 1;
+  
+}
+
