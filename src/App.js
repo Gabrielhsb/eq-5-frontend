@@ -1,11 +1,12 @@
 import Home from "./views/home";
 import Login from "./views/login";
+import Search from "./views/search";
 
 
 function App() {
   return (
     <div className="App">
-     <Home/>
+     <Search/>
     </div>
   );
 }
