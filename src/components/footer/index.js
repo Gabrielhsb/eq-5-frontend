@@ -10,16 +10,25 @@ export function Footer () {
       <hr/>
       <footer className={styles.footerContainer}>
       <img src={logo} alt="Recone logo"/>
-        <a href=''>Pesquisa</a>
-        <a href=''>Perfil</a>
-        <a href=''>Contato</a>
-        <IconButton color="default" aria-label="instagram">
-            <InstagramIcon />
-      </IconButton>
 
-      <IconButton color="default" aria-label="facebook">
-            <FacebookIcon />
-      </IconButton>
+        <div> 
+          <a href=''>Pesquisa</a>
+          <span> . </span>
+          <a href=''>Perfil</a>
+          <span> . </span>
+          <a href=''>Contato</a>
+        </div>
+
+        <div className={styles.socialButtons}>
+        <IconButton color="default" aria-label="instagram">
+              <InstagramIcon />
+        </IconButton>
+
+        <IconButton color="default" aria-label="facebook">
+              <FacebookIcon />
+        </IconButton>
+        </div>
+
     </footer>
       
     <hr/>

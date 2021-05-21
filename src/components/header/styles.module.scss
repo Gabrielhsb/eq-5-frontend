@@ -19,7 +19,7 @@
     margin-left:70px;
   }
   a {
-     margin-left:50px;
+     
      font-family: 'Nunito';
      text-decoration: none;
      color: #1A1A1A;
@@ -34,5 +34,9 @@ hr {
 }
 
 .headerMenu {
-  margin-left:150px;
+  margin-left:40px;
+  span {
+    color: #6866CC;
+    font-size: 60px;
+  }
 }

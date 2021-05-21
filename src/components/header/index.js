@@ -8,7 +8,9 @@ export function Header () {
       <img src={logo} alt="Recone logo"/>
       <div className={styles.headerMenu}> 
         <a href=''>Pesquisa</a>
+        <span> . </span>
         <a href=''>Perfil</a>
+        <span> . </span>
         <a href=''>Contato</a>
       </div>
 

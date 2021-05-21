@@ -1,0 +1,66 @@
+.containerOne {
+  margin-top:90px;
+  display: flex;
+  font-family: 'Nunito';
+  gap: 500px;
+  h1{
+    font-size: 60px;
+    font-weight: 100;
+  }
+  .imageOne {
+    margin-right: 200px;
+
+  }
+
+  span {
+    margin-bottom: 300px;
+  }
+  .textOne {
+    margin-left: 138px;
+  }
+}
+
+.containerTwo {
+  margin-top:90px;
+  display: flex;
+  font-family: 'Nunito';
+  gap: 500px;
+  h1{
+    font-size: 60px;
+    font-weight: 100;
+  }
+
+  .textTwo {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 200px;
+    text-align: end;
+  }
+  .imageTwo{
+    margin-left: 138px;
+  }
+}
+
+.containerThree {
+  margin-top:90px;
+  display: flex;
+  font-family: 'Nunito';
+  gap: 500px;
+  margin-bottom: 100px;
+  h1{
+    font-size: 60px;
+    font-weight: 100;
+  }
+  .imageThree {
+    margin-right: 200px;
+
+  }
+
+  span {
+    margin-bottom: 300px;
+  }
+  .textThree {
+    margin-left: 138px;
+  }
+}

@@ -4,6 +4,13 @@
   display: flex;
   align-items: center;
 
+  span {
+    color: #6866CC;
+    font-size: 60px;
+    margin-top: -34px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
  
   padding: 2rem 4rem;
   border-bottom: 1px solid var(--gray-100)
@@ -21,7 +28,6 @@
     
   }
   a {
-     margin-left: 30px;
      font-family: 'Nunito';
      text-decoration: none;
      color: #1A1A1A;
@@ -39,3 +45,5 @@ p {
   font-family: 'Nunito';
   text-align: center;
 }
+
+
