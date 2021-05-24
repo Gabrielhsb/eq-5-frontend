@@ -6,7 +6,9 @@ export function Header () {
   return(
     <div>
       <header className={styles.headerContainer}>
-      <img src={logo} alt="Recone logo" onClick={() => history.push('/')}/>
+        <div  className={styles.logo}>
+        <img src={logo} alt="Recone logo" onClick={() => history.push('/')}/>
+        </div>
       <div className={styles.headerMenu}> 
         <Link to="/search">Pesquisa</Link>
         <span> . </span>
@@ -14,9 +16,13 @@ export function Header () {
         <span> . </span>
         <Link to='/about'>Contato</Link>
       </div>
-
     </header>
     <hr/>
     </div>
   );
 }
+
+
+
+
+

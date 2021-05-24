@@ -34,12 +34,11 @@ export default function Home() {
     <div>
       <div className={styles.homeContainer}>
         <div className={styles.welcome}>
-            <h1 className={styles.titleOne}>Rede de conexão para </h1><br/>
-            <img src={ilustration} alt="Ilustração de boas"/>
+            <h1 className={styles.titleOne}>Rede de conexão para <h1 className={styles.titleTwo}>neurodiversos</h1> </h1><br/>
+            <h4>Aqui reconhecemos e integramos suas <br/>capacidades!</h4>
         </div>
-        <div className={styles.text}>
-          <h1 className={styles.titleTwo}>neurodiversos</h1>
-          <h4>Aqui reconhecemos e integramos suas <br/>capacidades!</h4>
+        <div className={styles.ilustration}>
+          <img src={ilustration} alt="Ilustração de boas"/>
         </div>
       </div>
 
@@ -48,13 +47,13 @@ export default function Home() {
             <h5 className={styles.textH5}>Esses são os profissionais de destaque na nossa <br/>plataforma, seus talentos estão brilhando.</h5>
 
             <div className={styles.cards}>
-            <Card  className={styles.root}>
-              <CardContent className={styles.content}>
-                  <CardMedia
-                      className={styles.media}
-                      image={perfil}
-                      title="foto perfil"
-                  />
+              <Card  className={styles.root}>
+                <CardContent className={styles.content}>
+                    <CardMedia
+                        className={styles.media}
+                        image={perfil}
+                        title="foto perfil"
+                    />
                   <h5 className={styles.perfilName}>Ana Beatriz Silva</h5>
                   <h6 className={styles.work}>Desenvolvedora Backend</h6>
                   <button className={styles.button}>Tecnologia</button>
@@ -87,8 +86,7 @@ export default function Home() {
             </div>
         </div>
 
-      <div className={styles.homeContainer}>
-        <div className={styles.welcome}>
+      <div className={styles.homeSearch}>
           <div className={styles.divTextFinal}>
           <h1 className={styles.titleThree}>Encontre o profissional <br/> perfeito para você</h1><br/>
           <span className={styles.text3}>O autismo não diminui ninguém.<br/>
@@ -96,8 +94,9 @@ Realize pesquisas por categoria e profissão e <br/> escolha os profissionais id
 </span> 
           <IconButton className={classes.buttonSearch}>PESQUISAR <SearchIcon /></IconButton>
           </div>
+          
             <img src={ilustration2} alt="Ilustração de boas"/>
-        </div>
+        
         <div className={styles.text2}>
           
         </div>
