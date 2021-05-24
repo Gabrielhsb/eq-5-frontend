@@ -1,20 +1,50 @@
 .container {
- height: 800px;
+ height: 100%;
  overflow: hidden;
+ padding-bottom: 10%;
+padding-top: 10%;
+
 }
 
+.background{
+  background-image: url(../../images/background-login.png);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: rem;
+}
 .loginCard {
   position: absolute;
-  left: 600px;
-  top: 285px;
+  left: 31%;
+  top: 43%;
   z-index: 2;
 }
 
 .signUpCard {
   position: relative;
-  top: 100px;
-  left: 900px;
+  top: 50%;
+  left: 50%;
   z-index: 1;
   
+}
+
+@media (max-width:600px){
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-self: start;
+    height: auto;
+    background-color: #fff;
+    .signUpCard {
+      display: none;
+    }
+    .loginCard{
+      
+      left:10%;
+      top: 15%;
+    }
+  }
+ .footer{
+   margin-top: 100%;
+ }
 }
 

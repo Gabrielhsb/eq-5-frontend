@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 export default function Login() {
   return (
-    <div >
+    <div className={styles.background}>
       <div className={styles.container}>
           <div className={styles.loginCard}>
               <LoginCard/>
@@ -15,8 +15,8 @@ export default function Login() {
               <SignUpCard/>
           </div>
       </div>
-      <div>
-        <Footer/>
+      <div className={styles.footer}>
+      <Footer/>
       </div>
     </div>
     

@@ -7,6 +7,7 @@ import Perfil from "./views/perfil";
 import Search from "./views/search";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Header } from './components/header';
+import { Footer } from './components/footer';
 
 ReactDOM.render(
   <React.StrictMode>
