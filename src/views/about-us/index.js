@@ -8,7 +8,7 @@ export default function About() {
     <div>
       <div className={styles.containerOne}>
         <div className={styles.textOne}>
-          <h1>Quem somos e <br/>
+          <h1>Quem <span className={styles.purpleText}>somos</span> e <br/>
         o que fazemos</h1>
         <span>Nossa plataforma foi criada para dar visibilidade às pessoas do espectro e seus talentos. </span> <br/>  <br/> 
         <span>Buscamos derrubar as barreiras do preconceito e do capacitismo para que clientes e recrutadores enxerguem o potencial dos profissionais e os contrate! </span>

@@ -8,6 +8,7 @@ import iconPin from '../../images/icons/pin.png';
 import iconTel from '../../images/icons/tel.png';
 import achievementsIcon from '../../images/achievementsIcon.png';
 import image from '../../images/ana-image1.jpg';
+import { Footer } from '../../components/footer';
 const useStyles = makeStyles({
   buttonPerfil: {
     fontFamily: 'Nunito',
@@ -104,6 +105,7 @@ export default function Perfil() {
             {gallery}
           </div>
         </div>
+        <Footer/>
     </div>
 
   )}

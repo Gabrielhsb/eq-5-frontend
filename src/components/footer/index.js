@@ -3,6 +3,7 @@ import logo from '../../images/Recone.png';
 import IconButton from '@material-ui/core/IconButton';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import { Link } from 'react-router-dom';
 
 export function Footer () {
   return(
@@ -12,11 +13,11 @@ export function Footer () {
       <img src={logo} alt="Recone logo"/>
 
         <div> 
-          <a href=''>Pesquisa</a>
-          <span> . </span>
-          <a href=''>Perfil</a>
-          <span> . </span>
-          <a href=''>Contato</a>
+        <Link to="/search">Pesquisa</Link>
+        <span> . </span>
+        <Link to='/perfil'>Perfil</Link>
+        <span> . </span>
+        <Link to='/about'>Contato</Link>
         </div>
 
         <div className={styles.socialButtons}>

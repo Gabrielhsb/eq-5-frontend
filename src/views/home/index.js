@@ -8,8 +8,28 @@ import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { Footer } from '../../components/footer';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  buttonSearch: {
+    fontFamily: 'Nunito',
+    background: '#6866CC',
+    color: '#fff',
+    width: 200,
+    height: 64,
+    borderRadius: 40,
+    boxShadow:' 0 4 16 rgba(0; 0; 0; 0.08)',
+    border: 0,
+    marginTop: 50,
+    cursor: 'pointer',
+    marginTop:30,
+    fontSize: 17,
+    marginBottom: 60,
+  }
+});
+
 export default function Home() {
- 
+  const classes = useStyles();
   return (
     <div>
       <div className={styles.homeContainer}>
@@ -74,7 +94,7 @@ export default function Home() {
           <span className={styles.text3}>O autismo não diminui ninguém.<br/>
 Realize pesquisas por categoria e profissão e <br/> escolha os profissionais ideais!
 </span> 
-          <IconButton className={styles.buttonSearch}>PESQUISAR <SearchIcon /></IconButton>
+          <IconButton className={classes.buttonSearch}>PESQUISAR <SearchIcon /></IconButton>
           </div>
             <img src={ilustration2} alt="Ilustração de boas"/>
         </div>

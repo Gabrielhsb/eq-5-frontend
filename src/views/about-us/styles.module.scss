@@ -3,6 +3,7 @@
   display: flex;
   font-family: 'Nunito';
   gap: 500px;
+  
   h1{
     font-size: 60px;
     font-weight: 100;
@@ -63,4 +64,8 @@
   .textThree {
     margin-left: 138px;
   }
+}
+
+.purpleText {
+  color: #6866CC;
 }
