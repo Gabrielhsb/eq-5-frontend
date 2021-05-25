@@ -8,3 +8,11 @@
   font-family: Nunito;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .button {
+  width: 150px;
+  height: 60px;
+  font-size: 17px;
+  }
+}

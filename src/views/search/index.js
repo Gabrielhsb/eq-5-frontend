@@ -53,6 +53,7 @@ export default function Search() {
       <div className={styles.textArea}>
           <div className={styles.titleFull}>
             <h1 className={styles.title}>Contrate uma pessoa </h1>
+            
             <h1 className={styles.textColor}>neurodiversa</h1>
           </div>
             <span>Profissionais 
