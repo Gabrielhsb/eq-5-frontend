@@ -34,12 +34,13 @@
 @media (max-width: 600px) {
   
   .headerMenu{
+    max-width:100vw;
     width:100%;
     height: 100%;
     justify-content: center;
   }
   .headerContainer {
-    
+    margin-left: 10px;
     height: 100%;
     width: 100%;
     img {

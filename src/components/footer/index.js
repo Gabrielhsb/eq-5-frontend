@@ -9,7 +9,7 @@ import { Link, useHistory } from 'react-router-dom';
 export function Footer () {
   const history = useHistory()
   return(
-    <div>
+    <div className={styles.container}>
       <hr/>
       <footer className={styles.footerContainer}>
       <div  className={styles.logo}>

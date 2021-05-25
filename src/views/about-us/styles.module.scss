@@ -2,7 +2,7 @@
   margin-top:90px;
   display: flex;
   font-family: 'Nunito';
-  gap: 500px;
+  gap: 10%;
   
   h1{
     font-size: 60px;
@@ -25,7 +25,8 @@
   margin-top:90px;
   display: flex;
   font-family: 'Nunito';
-  gap: 500px;
+  gap: 10%;
+
   h1{
     font-size: 60px;
     font-weight: 100;
@@ -47,7 +48,7 @@
   margin-top:90px;
   display: flex;
   font-family: 'Nunito';
-  gap: 500px;
+  gap: 20%;
   margin-bottom: 100px;
   h1{
     font-size: 60px;
@@ -68,4 +69,57 @@
 
 .purpleText {
   color: #6866CC;
+}
+
+@media (max-width:600px){
+ 
+  .containerOne, .containerThree{
+    
+    display: inline;
+    .textOne, .textThree{
+      margin-left: 0px;
+      max-width:84vw;
+    }
+
+    .imageOne, .imageThree{
+      margin: 0;
+
+      img{
+        max-width:90vw;
+      }
+    }
+    h1{
+      font-size: 40px;
+    }
+   
+  }
+ 
+  .containerTwo{
+    display: flex;
+    flex-direction: column-reverse;
+
+    h1{
+      font-size: 40px;
+    }
+    .imageTwo{
+      margin-left: 10px;
+
+      img{
+        max-width: 80vw;
+      }
+    }
+
+    .textTwo {
+      align-items: flex-start;
+      text-align: start;
+      
+      margin-right: 0;
+      max-width:84vw;
+
+      
+    }
+
+  
+  }
+
 }

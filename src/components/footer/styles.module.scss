@@ -60,6 +60,7 @@ p {
   }
   .footerContainer {
     
+    margin-left: 7px;
     height: 100%;
     width: 100%;
     img {
@@ -79,4 +80,9 @@ p {
     width: 30%;
     
    }
+
+   .container{
+    max-width:100vw;
+  }
+
 }
