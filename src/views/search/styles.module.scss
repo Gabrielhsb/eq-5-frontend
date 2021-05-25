@@ -31,6 +31,12 @@ height: 20px;
     padding-left: 20px;
   }
 }
+
+input:focus,select:focus {
+  border-style:solid;
+  border: 2px solid #bfbef1;
+  outline: 0;
+}
 .titleFull{
   display: flex;
 
