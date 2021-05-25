@@ -32,18 +32,20 @@
 }
 
 @media (max-width: 600px) {
+  
   .headerMenu{
     width:100%;
     height: 100%;
+    justify-content: center;
   }
   .headerContainer {
     
     height: 100%;
     width: 100%;
     img {
-      height: 20%;
-      width: 60%;
-      margin-top: 22%;
+      height: 50%;
+      width: 70%;
+      margin-top: 10%;
     }
     a {
       font-size: 1rem;

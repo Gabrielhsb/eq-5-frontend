@@ -41,7 +41,6 @@ var cards = arrayTest.map((people, index) =>
               <h3>{people.work}</h3>
               <h3>{people.city}</h3>
             </div>
-
         </CardContent>
       </Card>
 )

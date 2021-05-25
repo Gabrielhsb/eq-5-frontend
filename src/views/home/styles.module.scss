@@ -60,7 +60,7 @@
   align-items: center;
   padding-top: 50px;
 
-  .textH3 {
+  h3 {
     font-family: Nunito;
     font-style: normal;
     font-weight: 300;
@@ -189,29 +189,60 @@
 }
 
 @media (max-width: 600px) {
+  .homeContainer1{
+    box-sizing: border-box;
+  }
   .homeContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
   }
 
   .welcome {
+    width: 600px;
     display: flex;
-    justify-content: center;
     align-items: center;
+
+    h1{
+      
+      font-size: 40px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      line-height: 40px;
+    }
+   
+    h4 {
+      
+      font-size: 20px;
+      line-height: 29px;
+    }
+    img {
+      width: 50px;
+      height:50px;
+    }
   }
+
+
   .highlights {
     .cards{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 10%;
     }
+    h3 {
+      font-size:40px;
+      margin-bottom: 4px;
+      margin-top: 4px;
+    }
+    .textH5{
+      font-size: 20px;
+    }
   }
+ 
   .root {
     width: 350px;
     height: 450px;
     margin-bottom: 30px;
+    margin-left: 0;
     .media {
       height: 180px;
       width: 180px;
@@ -237,6 +268,11 @@
   .homeSearch {
     display: flex;
     flex-wrap: wrap;
+
+    h1 {
+      font-size: 40px;
+      line-height: 40px;
+    }
   }
 }
 
@@ -264,6 +300,10 @@
   .homeSearch {
     display: flex;
     flex-wrap: wrap;
+
+    img {
+      height: 350px;
+    }
   }
 }
 

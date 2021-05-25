@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 export default function Home() {
   const classes = useStyles();
   return (
-    <div>
+    <div className={styles.homeContainer1}>
       <div className={styles.homeContainer}>
         <div className={styles.welcome}>
             <h1 className={styles.titleOne}>Rede de conexão para <h1 className={styles.titleTwo}>neurodiversos</h1> </h1><br/>

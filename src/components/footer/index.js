@@ -16,7 +16,7 @@ export function Footer () {
         <img src={logo} alt="Recone logo" onClick={() => history.push('/')}/>
         </div>
       <div className={styles.footerMenu}> 
-        <div>
+        <div className={styles.menu}>
           <Link to="/search">Pesquisa</Link>
             <span> . </span>
             <Link to='/perfil'>Perfil</Link>
