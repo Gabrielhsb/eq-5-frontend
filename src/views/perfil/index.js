@@ -75,9 +75,9 @@ export default function Perfil() {
             <h1>{peopleTest.name}</h1>
             <h2>{peopleTest.work}</h2>
             <div className={styles.info}>
-              <img src={iconPin}/>
+              <img className={styles.iconImg} src={iconPin}/>
               <h5>  {peopleTest.city}</h5>
-              <img src={iconTel}/>
+              <img className={styles.iconImg} src={iconTel}/>
               <h5>  {peopleTest.tel}</h5>
             </div>
             <IconButton className={classes.buttonPerfil}>GITHUB <LinkIcon /></IconButton>
