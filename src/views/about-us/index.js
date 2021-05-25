@@ -5,7 +5,7 @@ import imageThree from '../../images/ilustration-objetivo.png';
 import {Footer} from '../../components/footer/index.js';
 export default function About() {
   return(
-    <div>
+    <div className={styles.containerBoddy}>
       <div className={styles.containerOne}>
         <div className={styles.textOne}>
           <h1>Quem <span className={styles.purpleText}>somos</span> e <br/>
