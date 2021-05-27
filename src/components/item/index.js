@@ -1,9 +1,9 @@
-import styles from './styles.module.scss';
+import './styles.css';
 
 export default function Item (props) {
   return(
-    <div>
-      <button className={styles.button}>{props.title}</button>
+    <div >
+      <button className={`menu-item${props.selected ? '-active' : ''}`}>{props.title}</button>
     </div>
   );
 }

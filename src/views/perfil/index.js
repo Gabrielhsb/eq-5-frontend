@@ -21,7 +21,6 @@ const useStyles = makeStyles({
     border: 0,
     marginTop: 50,
     cursor: 'pointer',
-    marginTop:30,
     fontSize: 17,
     marginBottom: 60,
   }
@@ -49,13 +48,13 @@ var  peopleTest = {
 var galleryArray = [image,image,image,image,image,image,image,image]
 var gallery = galleryArray.map((img, index) =>
     
-        <img src={img}/>
+        <img src={img} alt="imagens da galeria" />
    
    
 )
 var achievements = peopleTest.achievements.map( (ach, index) => 
     <div className={styles.achievementsCards}>
-      <img src={achievementsIcon}/>
+      <img src={achievementsIcon} alt="icone de conquista" />
       <div> 
         <h5>{ach.name}</h5>
         <span>{ach.date}</span>
@@ -71,13 +70,13 @@ export default function Perfil() {
         <div className={styles.banner}>
         </div>
         <div className={styles.content}>
-            <img src={peopleTest.img}/>
+            <img src={peopleTest.img} alt="foto de perfil"/>
             <h1>{peopleTest.name}</h1>
             <h2>{peopleTest.work}</h2>
             <div className={styles.info}>
-              <img className={styles.iconImg} src={iconPin}/>
+              <img className={styles.iconImg} src={iconPin} alt=""/>
               <h5>  {peopleTest.city}</h5>
-              <img className={styles.iconImg} src={iconTel}/>
+              <img className={styles.iconImg} src={iconTel} alt="" />
               <h5>  {peopleTest.tel}</h5>
             </div>
             <IconButton className={classes.buttonPerfil}>GITHUB <LinkIcon /></IconButton>

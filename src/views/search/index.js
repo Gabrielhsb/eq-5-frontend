@@ -3,8 +3,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import people from '../../images/perfil.png';
 import { Footer } from '../../components/footer';
-import React, { useState } from 'react';
-import Item from '../../components/item/index.js';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+import React, { Component } from 'react';
+import Item from '../../components/item/index';
 
 var  peopleTest = {
   img: people,
@@ -30,12 +31,32 @@ const list = [
 ];
 
 
-const works = list.map(elem => <Item title={elem.name}/>);
+export const Menu = (list, selected) =>
+  list.map(el => {
+    const {name} = el;
+
+    return <Item title={name} key={name} selected={selected} /> ;
+  });
+
+  const Arrow = ({ text, className }) => {
+    return (
+      <div
+        className={className}
+      >{text}</div>
+    );
+  };
+
+
+const ArrowLeft = Arrow({ text: '<', className: styles.arrowPrev });
+const ArrowRight = Arrow({ text: '>', className: styles.arrowNext });
+
+const selected = 'Tecnologia';
+
 
 var cards = arrayTest.map((people, index) => 
       <Card  className={styles.rootCard}>
         <CardContent className={styles.cardContent}>
-            <img src={people.img}/>
+            <img src={people.img} alt="foto de perfil"/>
             <div className={styles.CardText}>
               <h1>{people.name}</h1>
               <h3>{people.work}</h3>
@@ -44,11 +65,31 @@ var cards = arrayTest.map((people, index) =>
         </CardContent>
       </Card>
 )
-export default function Search() {
 
- 
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    // call it again if items count changes
+    this.menuItems = Menu(list, selected);
+  }
+  state = {
+    selected
+  };
+  
+  
+  onSelect = key => {
+    this.setState({ selected: key });
+    
+  }
+
+  render(){
+    
+    const { selected } = this.state;
+    console.log(selected)
+    // Create menu from items
+    const menu = this.menuItems;
   return(
-
+    
     <div className={styles.searchContainer}>
       <div className={styles.textArea}>
           <div className={styles.titleFull}>
@@ -61,7 +102,13 @@ export default function Search() {
             <input className={styles.searchBar} placeholder="Busque por uma profissão"></input>
       </div>
       <div className={styles.works}>
-       {works}
+      <ScrollMenu
+        data={menu}
+        arrowLeft={ArrowLeft}
+        arrowRight={ArrowRight}
+        selected={selected}
+        onSelect={this.onSelect}
+        />
       </div>
  
       <div className={styles.cards}>
@@ -69,6 +116,7 @@ export default function Search() {
       </div>
       <Footer/>
     </div>
-
-  )
+  )}
 }
+
+export default Search;

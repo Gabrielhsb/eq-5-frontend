@@ -13,15 +13,15 @@ export default function About() {
         <span>Nossa plataforma foi criada para dar visibilidade às pessoas do espectro e seus talentos. </span> <br/>  <br/> 
         <span>Buscamos derrubar as barreiras do preconceito e do capacitismo para que clientes e recrutadores enxerguem o potencial dos profissionais e os contrate! </span>
         </div>
-        <div className={styles.imageOne}>
-        <img src={imageOne}/>
+        <div className={styles.imageOne} alt="ilustração">
+        <img src={imageOne} alt="ilustração"/>
         </div>
       </div>
 
 
       <div className={styles.containerTwo}>
         <div className={styles.imageTwo}>
-          <img src={imageTwo}/>
+          <img src={imageTwo} alt="ilustração"/>
           </div>
         <div className={styles.textTwo}>
           <h1>Nosso nascimento</h1>
@@ -39,7 +39,7 @@ export default function About() {
 </span>
         </div>
         <div className={styles.imageThree}>
-        <img src={imageThree}/>
+        <img src={imageThree} alt="ilustração"/>
         </div>
       </div>
       <Footer/>

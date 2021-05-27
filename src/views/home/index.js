@@ -22,7 +22,6 @@ const useStyles = makeStyles({
     border: 0,
     marginTop: 50,
     cursor: 'pointer',
-    marginTop:30,
     fontSize: 17,
     marginBottom: 60,
   }

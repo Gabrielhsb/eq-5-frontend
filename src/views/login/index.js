@@ -1,10 +1,20 @@
+
 import { Footer } from '../../components/footer';
 import {LoginCard} from '../../components/login-card';
 import {SignUpCard} from '../../components/sign-up-card';
 
 import styles from './styles.module.scss';
 
+
+
+
+
+
+
 export default function Login() {
+ 
+
+
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -21,7 +31,7 @@ export default function Login() {
               </div>
               <div className={styles.divLabel}>
                 <label >Senha</label><br/>
-                <input className={styles.input}  type="password" id="password"/><br/>
+                <input className={styles.input}  type="password" id="password" /><br/>
               </div>
               <input className={styles.button} type="submit" value="ENTRAR"/>
             </form>
