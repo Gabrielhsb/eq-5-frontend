@@ -4,8 +4,9 @@ import useStorage from '../../utils/useStorage.js';
 
 const StoreProvider = ({ children }) => {
   const [ token, setToken ] = useStorage('token');
+  const [ user, setUser ] = useStorage('user');
   return (
-    <Context.Provider value={{token, setToken}}>
+    <Context.Provider value={{token, setToken, user, setUser}}>
       {children}
     </Context.Provider>
   )

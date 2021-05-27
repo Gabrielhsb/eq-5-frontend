@@ -12,13 +12,13 @@ height: 20px;
   h1 {
     margin-bottom: 1%;
     font-weight: 100;
-    font-size: 50px
+    font-size: 44px
 
   }
 
   span {
     font-weight: 200;
-    font-size:23px;
+    font-size:20px;
     margin-bottom: 2%;
   }
 
@@ -60,51 +60,78 @@ input:focus,select:focus {
   width: 100%;
   height: 100%;
   img {
-    margin-top: 2%;
+    margin-top: 8%;
     margin-left: 2%;
-    width: 200px;
-    height: 200px;
-
+    width: 130px;
+    height: 130px;
+    border-radius: 80px;
   }
 }
 
 .CardText{
+  
   margin-top: 20px;
   margin-left: 27px;
   font-family: Nunito;
 
   h1 {
     margin-bottom: 0px;
-    font-size: 28px;
+    font-size: 24px;
   }
 
   h3{
     margin-top: 7px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 300;
   }
 }
 
 .rootCard {
-  width: 37%;
-  height: 250px;
-  border-radius: 15px;
+  cursor: pointer;
+  min-width: 450px;
+  min-height: 220px;
+  border-radius: 30px;
   margin-left: 9%;
   margin-top: 50px;
- 
- 
+  display: flex;
+  
 }
 
 .works {
   margin-top: 50px;
-  margin-left: 150px;
-  width: 80%;
+  margin-left: 8px;
+  width: 98%;
 
 
 }
 
-@media (max-width:600px){
+.searchForm{
+  position: relative;
+  button {
+    background-color: Transparent;
+    border: none;
+    position: absolute;
+    left: 34vw;
+    top: 0.5vw;
+    cursor: pointer;
+    img{
+      height: 80%;
+      width: 80%;
+    }
+  }
 
+  input{
+    flex: 1;
+  }
+}
+
+
+
+
+@media (max-width:600px){
+  .searchContainer{
+    box-sizing: border-box;
+  }
   .works{
     margin-top: 30px;
     margin-left: 40px;
@@ -114,13 +141,15 @@ input:focus,select:focus {
   }
   .textArea {
     h1{
-      font-size: 40px;
-      line-height: 40px;
+      font-size: 30px;
+      line-height: 15px;
+      margin-left: 0;
     }
 
     span {
       margin-top: 30px;
-      font-size: 20px;
+      font-size: 15px;
+      margin-bottom: 30px;
     }
 
     input {
@@ -130,27 +159,18 @@ input:focus,select:focus {
 
     
   }
+  .searchForm{
+    img{
+      display: none;
+    }
+  }
   .cards{
     margin-top: 5px;
     flex-direction: column;
   }
 
-  .rootCard{
-    width: 95%;
-    height: 80%;
 
-    img{
-      height: 140px;
-      width: 140px;
-    }
-    h1{
-      font-size: 25px;
-    }
 
-    h3{
-      font-size: 20px;
-    }
-  }
 }
 
 .scroll-menu-arrow {

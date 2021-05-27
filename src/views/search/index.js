@@ -1,122 +1,157 @@
 import styles from './styles.module.scss';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import people from '../../images/perfil.png';
 import { Footer } from '../../components/footer';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Item from '../../components/item/index';
-
-var  peopleTest = {
-  img: people,
-  name: 'Ana Beatriz Silva',
-  work: 'Desenvolvedor',
-  city: 'Lavras - MG'
-}
-
-var arrayTest = [peopleTest,peopleTest,peopleTest,
-  peopleTest,peopleTest,peopleTest,peopleTest];
+import search from '../../images/icons/search.png';
+import api from '../../services/api';
+import { useHistory } from 'react-router-dom';
 
 
 const list = [
-  { id:1, name: 'Tecnologia' },
-  { id:2,name: 'Serviços Gerais' },
-  { id:4, name: 'Educação' },
-  { id:5, name: 'Culinária' },
-  { id:6, name: 'Artesanato' },
-  { id:7, name: 'Beleza e Cuidados' },
-  { id:8, name: 'Artes e Design' },
-  { id:9, name: 'item8' },
-  { id:10,name: 'item9' }
+  { name: 'Todos' },
+  { name: 'Tecnologia' },
+  { name: 'Serviços Gerais' },
+  { name: 'Educação' },
+  { name: 'Culinária' },
+  { name: 'Artesanato' },
+  { name: 'Beleza' },
+  { name: 'Design' },
+  { name: 'item9' }
 ];
 
 
 export const Menu = (list, selected) =>
   list.map(el => {
-    const {name} = el;
+    const { name } = el;
 
-    return <Item title={name} key={name} selected={selected} /> ;
+    return <Item title={name} key={name} selected={selected} />;
   });
 
-  const Arrow = ({ text, className }) => {
-    return (
-      <div
-        className={className}
-      >{text}</div>
-    );
-  };
+const Arrow = ({ text, className }) => {
+  return (
+    <div
+      className={className}
+    >{text}</div>
+  );
+};
 
 
 const ArrowLeft = Arrow({ text: '<', className: styles.arrowPrev });
 const ArrowRight = Arrow({ text: '>', className: styles.arrowNext });
 
-const selected = 'Tecnologia';
+
+export default function Search() {
+  const [selected, setSelected] = useState('');
+  const [occupation, setOccupation] = useState('');
+  const menuItems = Menu(list, selected);
+  const [users, setUsers] = useState([]);
+  const [filterUsers, setFilterUsers] = useState([]);
+  const todos = 'Todos';
+  const history = useHistory();
 
 
-var cards = arrayTest.map((people, index) => 
-      <Card  className={styles.rootCard}>
-        <CardContent className={styles.cardContent}>
-            <img src={people.img} alt="foto de perfil"/>
-            <div className={styles.CardText}>
-              <h1>{people.name}</h1>
-              <h3>{people.work}</h3>
-              <h3>{people.city}</h3>
-            </div>
-        </CardContent>
-      </Card>
-)
-
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    // call it again if items count changes
-    this.menuItems = Menu(list, selected);
-  }
-  state = {
-    selected
-  };
-  
-  
-  onSelect = key => {
-    this.setState({ selected: key });
-    
+  function callperfil(id){
+    return history.push('/perfil', [id]);
   }
 
-  render(){
-    
-    const { selected } = this.state;
-    console.log(selected)
-    // Create menu from items
-    const menu = this.menuItems;
-  return(
-    
+
+  function onChange(event) {
+    const { value } = event.target;
+    setOccupation(value);
+  }
+
+  function searchOccupation(event) {
+    event.preventDefault();
+
+    searchInput(occupation);
+  }
+
+
+  async function searchInput(occupation) {
+ 
+    const params = new URLSearchParams([['occupation', occupation]])
+    api.get("/user", { params })
+      .then((res) => (setFilterUsers(res.data)))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }
+
+  function onSelect(key) {
+
+    if (key === "Todos") {
+      setFilterUsers(users);
+    } else {
+      setFilterUsers(users.filter(function (obj) { return obj.categorie === key; }));
+    }
+  }
+  const menu = menuItems;
+
+  useEffect(() => {
+    api.get("/user")
+      .then((res) => (setUsers(res.data)))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  })
+
+  return (
     <div className={styles.searchContainer}>
       <div className={styles.textArea}>
-          <div className={styles.titleFull}>
-            <h1 className={styles.title}>Contrate uma pessoa </h1>
-            
-            <h1 className={styles.textColor}>neurodiversa</h1>
-          </div>
-            <span>Profissionais 
+        <div className={styles.titleFull}>
+          <h1 className={styles.title}>Contrate uma pessoa </h1>
+          <h1 className={styles.textColor}>neurodiversa</h1>
+        </div>
+        <span>Profissionais
             neurodiversos são tão capazes quanto os neurotípicos!</span>
-            <input className={styles.searchBar} placeholder="Busque por uma profissão"></input>
+        <form className={styles.searchForm} onSubmit={searchOccupation}>
+          <input className={styles.searchBar} name="occupation" value={occupation} onChange={onChange} placeholder="Busque por uma profissão"></input>
+          <button type="submit"><img src={search} alt="lupa" /></button>
+        </form>
+
       </div>
       <div className={styles.works}>
-      <ScrollMenu
-        data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
-        selected={selected}
-        onSelect={this.onSelect}
+        <ScrollMenu
+          data={menu}
+          arrowLeft={ArrowLeft}
+          arrowRight={ArrowRight}
+          selected={selected}
+          onSelect={onSelect}
         />
       </div>
- 
+
       <div className={styles.cards}>
-        {cards}
+        {filterUsers ? filterUsers.map((people, index) =>
+          <Card className={styles.rootCard} >
+            <CardContent className={styles.cardContent} onClick={callperfil(people.id)}>
+              <img src={people.avatar} alt="avatar" />
+              <div className={styles.CardText}>
+                <h1>{people.name}</h1>
+                <h3>{people.occupation}</h3>
+                <h3>{people.city}, {people.state}</h3>
+              </div>
+            </CardContent>
+          </Card>
+        )
+          : users.map((people, index) =>
+            <Card className={styles.rootCard} >
+              <CardContent className={styles.cardContent} onClick={callperfil(people.id)}>
+                <img src={people.avatar} alt="avatar" />
+                <div className={styles.CardText}>
+                  <h1>{people.name}</h1>
+                  <h3>{people.occupation}</h3>
+                  <h3>{people.city}, {people.state}</h3>
+                </div>
+              </CardContent>
+            </Card>
+          )
+        }
       </div>
-      <Footer/>
+      <Footer />
     </div>
-  )}
+  )
 }
 
-export default Search;

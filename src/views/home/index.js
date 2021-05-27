@@ -9,6 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { Footer } from '../../components/footer';
 import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from 'react';
+import api from '../../services/api';
 
 const useStyles = makeStyles({
   buttonSearch: {
@@ -16,7 +18,7 @@ const useStyles = makeStyles({
     background: '#6866CC',
     color: '#fff',
     width: 200,
-    height: 64,
+    height: 70,
     borderRadius: 40,
     boxShadow:' 0 4 16 rgba(0; 0; 0; 0.08)',
     border: 0,
@@ -28,6 +30,17 @@ const useStyles = makeStyles({
 });
 
 export default function Home() {
+  const [ userFavorite, setUserFavorite] = useState([]);
+
+
+  useEffect(() => {
+    api.get("/user")
+      .then((res) => (setUserFavorite(res.data)))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  },[])
+
   const classes = useStyles();
   return (
     <div className={styles.homeContainer1}>
@@ -46,42 +59,20 @@ export default function Home() {
             <h5 className={styles.textH5}>Esses são os profissionais de destaque na nossa <br/>plataforma, seus talentos estão brilhando.</h5>
 
             <div className={styles.cards}>
-              <Card  className={styles.root}>
-                <CardContent className={styles.content}>
-                    <CardMedia
-                        className={styles.media}
-                        image={perfil}
-                        title="foto perfil"
-                    />
-                  <h5 className={styles.perfilName}>Ana Beatriz Silva</h5>
-                  <h6 className={styles.work}>Desenvolvedora Backend</h6>
-                  <button className={styles.button}>Tecnologia</button>
+            {userFavorite.map((people, index) =>
+            <Card className={styles.root} >
+              <CardContent className={styles.content} >
+                <CardMedia className={styles.media} image={people.avatar} alt="avatar" />
+                <div className={styles.CardText}>
+                  <h5 className={styles.perfilName}>{people.name}</h5>
+                  <h6 className={styles.work}>{people.occupation}</h6>
+                  <button className={styles.button} >{people.occupation}</button>
+                </div>
               </CardContent>
             </Card>
-            <Card  className={styles.root}>
-              <CardContent className={styles.content}>
-                  <CardMedia
-                      className={styles.media}
-                      image={perfil}
-                      title="foto perfil"
-                  />
-                  <h5 className={styles.perfilName}>Ana Beatriz Silva</h5>
-                  <h6 className={styles.work}>Desenvolvedora Backend</h6>
-                  <button className={styles.button}>Tecnologia</button>
-              </CardContent>
-            </Card>
-            <Card  className={styles.root}>
-              <CardContent className={styles.content}>
-                  <CardMedia
-                      className={styles.media}
-                      image={perfil}
-                      title="foto perfil"
-                  />
-                  <h5 className={styles.perfilName}>Ana Beatriz Silva</h5>
-                  <h6 className={styles.work}>Desenvolvedora Backend</h6>
-                  <button className={styles.button}>Tecnologia</button>
-              </CardContent>
-            </Card>
+          )
+        }
+           
             </div>
         </div>
 

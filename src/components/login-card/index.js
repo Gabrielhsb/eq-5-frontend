@@ -8,49 +8,42 @@ import api from '../../services/api';
 
 
 
-
-
-function initialState() {
-  return { email: '', password: '' };
-}
-
-
-async function login({email, password} ){
-  api({
-    method: 'POST',
-    url: '/login',
-    data: { email: email, password: password}
-  })
-  .then((response) => console.log(response.data))
-  .catch((err) => {
-    console.error("ops! ocorreu um erro" + err);
-  });
-
-}
-
-
 export function LoginCard () {
-  const [values, setValues] = useState(initialState);
-  const { setToken } = useContext(StoreContext);
-  const history = useHistory();
+ const [ email, setEmail] = useState('');
+ const [ password, setPassword] = useState('');
+ const [ erro, setErro] = useState('');
+ const { token, setToken, user, setUser } = useContext(StoreContext);
+ const history = useHistory();
 
-  function onChange(event) {
-    const { value , name } = event.target;
+
+
+  async function login(email, password ){
+ 
+    api({
+      method: 'POST',
+      url: '/login',
+      data: { email: email, password: password}
+    })
+    .then((response) => {
+      setToken(response.data.token);
+      setUser(response.data);
     
-    setValues({
-      ...values,
-      [name]: value
+    })
+    .catch((err) => {
+      setErro(err);
     });
+  
   }
-
-
   function onSubmit(event) {
     event.preventDefault();
-    const {token} = login("values");
+    login(email, password);
 
     if(token){
-      setToken(token);
-      return history.push('/perfil');
+
+      return history.push({
+        pathname: '/meu-perfil',
+        state: {user: 'user'}
+      });
     }
   }
   return (
@@ -63,12 +56,14 @@ export function LoginCard () {
           <form className={styles.form} onSubmit={onSubmit}>
             <div className={styles.divLabel}>
               <label >Email</label><br/>
-              <input className={styles.input}  type="email" name="email" onChange={onChange} value={values.email}/><br/>
+              <input className={styles.input}  type="email" name="email" onChange={(e) => setEmail(e.target.value)} value={email}/><br/>
             </div>
             <div className={styles.divLabel2}>
               <label >Senha</label><br/>
-              <input className={styles.input}  type="password" name="password" onChange={onChange} value={values.password}/><br/>
+              <input className={styles.input}  type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
+              <span>{erro ? `Falha no login!` : ''}</span>
             </div>
+            
             <input className={styles.button} type="submit" value="ENTRAR"/>
           </form>
         </div>

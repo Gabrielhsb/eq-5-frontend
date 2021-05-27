@@ -3,8 +3,6 @@ import Cookie from 'js-cookie';
 
 const storage = {};
 
-// Safari in incognito has local storage, but size 0
-// This system falls back to cookies in that situation
 try {
   if (!window.localStorage) {
     throw Error('no local storage');

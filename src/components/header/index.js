@@ -16,7 +16,7 @@ export function Header () {
       <div className={styles.headerMenu}> 
         <Link to="/search">Profissionais</Link>
         <span> . </span>
-        <Link to='/perfil'>{token ? 'Perfil' : 'Login'}</Link>
+        <Link to='/meu-perfil'>{token ? 'Perfil' : 'Login'}</Link>
         <span> . </span>
         <Link to='/about'>Somos</Link>
       </div>

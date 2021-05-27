@@ -125,6 +125,7 @@
   margin-top: 20px;
   height: 120px;
   width: 120px;
+  border-radius: 60px;
 }
 .perfilName {
   font-size: 15px;
@@ -140,10 +141,10 @@
 .button {
   background: #E6E8FF;
   border-radius: 40px;
-  width:  95px;
-  height: 30px;
+  width:  100px;
+  height: 50px;
   border: none;
-  font-size: 12px;
+  font-size: 11px;
   font-family: Nunito;
 }
 
@@ -256,8 +257,8 @@
     }
     .button {
       width: 130px;
-      height: 40px;
-      font-size: 15px;
+      height: 50px;
+      font-size: 14px;
     }
   }
 
