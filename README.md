@@ -1,4 +1,4 @@
-# Recone Wev :computer: :speaking_head: :brain:
+# Recone Web :computer: :speaking_head: :brain:
 
 ### :memo: Descrição
 Nosso objetivo é combater o capacitismo, discriminação e o preconceito social contra pessoas neurodivergentes, quebrando preconceitos e proporcionando o reconhecimento profissional dessas pessoas.
