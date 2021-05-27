@@ -97,10 +97,10 @@ input:focus,select:focus {
 
 .works {
   margin-top: 50px;
-  display: flex;
-  gap: 20px;
-  overflow-x: hidden;
   margin-left: 150px;
+  width: 80%;
+
+
 }
 
 @media (max-width:600px){
@@ -152,3 +152,16 @@ input:focus,select:focus {
     }
   }
 }
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.arrowPrev, .arrowNext{
+  font-size: 30px;
+  font-weight: bold;
+  color: #6866CC;
+  cursor: pointer;
+}
+
