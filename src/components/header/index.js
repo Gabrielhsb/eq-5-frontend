@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import StoreContext from '../../components/store/context';
 
 export function Header () {
-  const { token } = useContext(StoreContext);
+  const { token, setToken } = useContext(StoreContext);
   const history = useHistory()
   return(
     <div>
@@ -19,6 +19,11 @@ export function Header () {
         <Link to='/meu-perfil'>{token ? 'Perfil' : 'Login'}</Link>
         <span> . </span>
         <Link to='/about'>Somos</Link>
+        <span> {token ? " . " : ''} </span>
+        <a onClick={() => {
+          history.push('/')
+          setToken(null)
+          }}>{token ? " Sair " : ''}</a>
       </div>
     </header>
     <hr/>

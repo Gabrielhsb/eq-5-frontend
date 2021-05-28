@@ -6,9 +6,10 @@ const StoreProvider = ({ children }) => {
   const [ token, setToken ] = useStorage('token');
   const [ user, setUser ] = useStorage('user');
   const [ perfil, setPerfil ] = useStorage('perfil');
-  const [ id, setId ] = useStorage('id');
+  const [ idUser, setIdUser ] = useStorage('idUser');
+  const [ idPerfil, setIdPerfil ] = useStorage('idPerfil');
   return (
-    <Context.Provider value={{token, setToken, user, setUser, perfil, setPerfil, id, setId}}>
+    <Context.Provider value={{token, setToken, user, setUser, perfil, setPerfil, idUser, setIdUser,idPerfil, setIdPerfil}}>
       {children}
     </Context.Provider>
   )

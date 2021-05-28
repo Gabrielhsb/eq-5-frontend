@@ -1,7 +1,7 @@
 import { Card } from "@material-ui/core";
 import CardContent from '@material-ui/core/CardContent';
 import styles from './styles.module.scss';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import StoreContext from '../store/context';
 import { useHistory } from 'react-router-dom';
 import api from '../../services/api';
@@ -12,10 +12,16 @@ export function LoginCard () {
  const [ email, setEmail] = useState('');
  const [ password, setPassword] = useState('');
  const [ erro, setErro] = useState('');
- const { token, setToken, setId } = useContext(StoreContext);
+ const { token, setToken, setIdUser } = useContext(StoreContext);
  const history = useHistory();
 
+useEffect(() => {
+  if(token){
+    history.push('/meu-perfil' );
+  }
 
+
+}, [token])
 
   async function login(email, password ){
  
@@ -26,7 +32,7 @@ export function LoginCard () {
     })
     .then((response) => {
       setToken(response.data.token);
-      setId(response.data.id);
+      setIdUser(response.data.id);
     
     })
     .catch((err) => {
@@ -37,14 +43,8 @@ export function LoginCard () {
   function onSubmit(event) {
     event.preventDefault();
     login(email, password);
-
-    if(token){
-
-      return history.push({
-        pathname: '/meu-perfil'
-      });
-    }
   }
+
   return (
     <div>
     <Card className={styles.root} >
@@ -62,7 +62,6 @@ export function LoginCard () {
               <input className={styles.input}  type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
               <span>{erro ? `Falha no login!` : ''}</span>
             </div>
-            
             <input className={styles.button} type="submit" value="ENTRAR"/>
           </form>
         </div>

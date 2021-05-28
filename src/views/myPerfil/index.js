@@ -33,13 +33,12 @@ const useStyles = makeStyles({
 export default function MyPerfil() {
   const classes = useStyles();
 
-  const { user, setUser, perfil, setPerfil, id } = useContext(StoreContext);
+  const { user, setUser, idUser } = useContext(StoreContext);
 
 
   useEffect(() => {
-    console.log("Cheguei")
-    api.get(`/user/${id}`)
-      .then((res) => (setPerfil(res.data)))
+    api.get(`/user/${idUser}`)
+      .then((res) => (setUser(res.data)))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
@@ -49,12 +48,12 @@ export default function MyPerfil() {
 
   useEffect(() => {
     if (clicked) {
-      window.location.assign(perfil.links[0].url);
+      window.location.assign(user.links[0].url);
     }
   },[]);
 
 
-  const achievements = perfil?.achievements?.map((ach, index) =>
+  const achievements = user?.achievements?.map((ach, index) =>
     <div key={index} className={styles.achievementsCards}>
       <img src={achievementsIcon} alt="icone de conquista" />
       <div>
@@ -64,14 +63,13 @@ export default function MyPerfil() {
     </div>
   )
 
-  const gallery = perfil?.imageGallery?.map((img, index) => <img key={index} src={img} />)
+  const gallery = user?.imageGallery?.map((img, index) => <img key={index} src={img} />)
 
   const style = {
-    backgroundImage: `url(${perfil?.avatar})`,
+    backgroundImage: `url(${user?.avatar})`,
   }
-  console.log("perfil", perfil);
   return (
-    perfil && (
+    user && (
       <div className={styles.perfilContainer}>
         <div className={styles.banner}>
         </div>
@@ -81,24 +79,24 @@ export default function MyPerfil() {
             </div>
           </div>
 
-          <h1>{perfil.name}</h1>
-          <h2>{perfil.categorie}</h2>
+          <h1>{user.name}</h1>
+          <h2>{user.categorie}</h2>
           <div className={styles.info}>
             <img className={styles.iconImg} src={iconPin} alt="" />
-            <h5> {perfil.city}, {perfil.state}</h5>
+            <h5> {user.city}, {user.state}</h5>
             <img className={styles.iconImg} src={iconTel} alt="" />
-            <h5>  {perfil.phone}</h5>
+            <h5>  {user.phone}</h5>
           </div>
-          <Button className={classes.buttonPerfil} endIcon={<LinkIcon />} onClick={() => setClicked(true)} >{perfil?.links[0]?.name} </Button>
+          <Button className={classes.buttonPerfil} endIcon={<LinkIcon />} onClick={() => setClicked(true)} >{user?.links[0]?.name} </Button>
         </div>
         <hr />
 
         <div className={styles.aboutCard}>
           <div className={styles.about}>
             <h2>Sobre Mim</h2>
-            <h4>{perfil.occupation}</h4>
-            <h4>{perfil.age} anos</h4>
-            <span>{perfil.description}</span>
+            <h4>{user.occupation}</h4>
+            <h4>{user.age} anos</h4>
+            <span>{user.description}</span>
           </div>
           <div className={styles.achievements}>
             <h2>Conquistas</h2>

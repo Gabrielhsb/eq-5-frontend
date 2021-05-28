@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     marginTop: "50px",
     display: "flex",
     boxShadow: "0px 4px 25px rgba(0, 0, 0, 0.1)",
-    ['@media (max-width:600px)']: { // eslint-disable-line no-useless-computed-key
+    ['@media (max-width:600px)']: { 
       minWidth: "350px",
       marginLeft: "1",
      
@@ -45,7 +45,7 @@ const ArrowRight = Arrow({ text: '>', className: styles.arrowNext });
 
 export default function Search() {
   const classes = useStyles();
-  const { setId } = useContext(StoreContext);
+  const { setIdPerfil } = useContext(StoreContext);
   const [selected, setSelected] = useState('');
   const [occupation, setOccupation] = useState('');
   const [list, setList] = useState([]);
@@ -79,13 +79,7 @@ export default function Search() {
 
   async function onSelect(categorie) {
 
-    if (categorie === "Todos") {
-      api.get("/user")
-        .then((res) => (setUsers(res.data)))
-        .catch((err) => {
-          console.error("ops! ocorreu um erro" + err);
-        });
-    } else if (categorie === selected) {
+if (categorie === selected) {
       setSelected('');
       api.get("/user")
         .then((res) => (setUsers(res.data)))
@@ -150,8 +144,8 @@ export default function Search() {
       <div className={styles.cards} >
 
         {users.map((people, index) =>
-          <Card className={classes.rootCard} onClick={() => {
-            setId(people.id);
+          <Card key={index} className={classes.rootCard} onClick={() => {
+            setIdPerfil(people.id);
             history.push({
               pathname: '/perfil'
             });

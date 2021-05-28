@@ -33,12 +33,11 @@ const useStyles = makeStyles({
 export default function MyPerfil() {
   const classes = useStyles();
 
-  const { user, setUser, perfil, setPerfil, id } = useContext(StoreContext);
+  const { user, setUser, perfil, setPerfil, idPerfil } = useContext(StoreContext);
 
 
   useEffect(() => {
-    console.log("Cheguei")
-    api.get(`/user/${id}`)
+    api.get(`/user/${idPerfil}`)
       .then((res) => (setPerfil(res.data)))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -51,25 +50,12 @@ export default function MyPerfil() {
     if (clicked) {
       window.location.assign(perfil.links[0].url);
     }
-  },[]);
+  }, []);
 
-
-  const achievements = perfil?.achievements?.map((ach, index) =>
-    <div key={index} className={styles.achievementsCards}>
-      <img src={achievementsIcon} alt="icone de conquista" />
-      <div>
-        <h5>{ach.description}</h5>
-        <span>{ach.date}</span>
-      </div>
-    </div>
-  )
-
-  const gallery = perfil?.imageGallery?.map((img, index) => <img key={index} src={img} />)
 
   const style = {
     backgroundImage: `url(${perfil?.avatar})`,
   }
-  console.log("perfil", perfil);
   return (
     perfil && (
       <div className={styles.perfilContainer}>
@@ -103,7 +89,15 @@ export default function MyPerfil() {
           <div className={styles.achievements}>
             <h2>Conquistas</h2>
             <div >
-              {achievements}
+              {perfil?.achievements?.map((ach, index) =>
+                <div key={index} className={styles.achievementsCards}>
+                  <img src={achievementsIcon} alt="icone de conquista" />
+                  <div>
+                    <h5>{ach.description}</h5>
+                    <span>{ach.date}</span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -111,7 +105,7 @@ export default function MyPerfil() {
         <div className={styles.gallery}>
           <h2>Galeria</h2>
           <div className={styles.galleryCard}>
-            {gallery}
+            {perfil?.imageGallery?.map((img, index) => <img key={index} src={img} />)}
           </div>
         </div>
         <Footer />
