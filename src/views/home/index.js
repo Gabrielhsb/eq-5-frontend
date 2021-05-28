@@ -1,7 +1,6 @@
 import styles from './styles.module.scss';
 import ilustration from '../../images/ilustration.png';
 import ilustration2 from '../../images/home_ilustration.png';
-import perfil from '../../images/perfil.png';
 import { Card } from "@material-ui/core";
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -13,7 +12,6 @@ import React, { useState, useEffect,useContext} from 'react';
 import api from '../../services/api';
 import StoreContext from '../../components/store/context';
 import { useHistory } from 'react-router-dom';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles({
   buttonSearch: {
@@ -62,7 +60,7 @@ export default function Home() {
       });
   },[])
 
- 
+
   const classes = useStyles();
   return (
     <div className={styles.homeContainer1}>

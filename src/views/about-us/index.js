@@ -3,7 +3,6 @@ import imageOne from '../../images/ilustration-somos.png';
 import imageTwo from '../../images/ilustration-ideas.png';
 import imageThree from '../../images/ilustration-objetivo.png';
 import { Footer } from '../../components/footer/index.js';
-import Partners from '../../components/partners';
 import Slider from 'infinite-react-carousel';
 import flavia from '../../images/flavia-coelho.png';
 import Rafaela from '../../images/rafaela-araujo.png';
@@ -90,7 +89,7 @@ export default function About() {
         <div className={styles.slider}>
             <div className={styles.image}>
               <img src={Rafaela} alt="foto de perfil" />
-              <h3>@autistaemulher</h3>
+              <h3>@a_professora_neurodiversa</h3>
             </div>
             <div className={styles.text}>
 

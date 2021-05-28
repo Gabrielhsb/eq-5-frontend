@@ -45,7 +45,7 @@ const ArrowRight = Arrow({ text: '>', className: styles.arrowNext });
 
 export default function Search() {
   const classes = useStyles();
-  const { setPerfil } = useContext(StoreContext);
+  const { setId } = useContext(StoreContext);
   const [selected, setSelected] = useState('');
   const [occupation, setOccupation] = useState('');
   const [list, setList] = useState([]);
@@ -151,7 +151,7 @@ export default function Search() {
 
         {users.map((people, index) =>
           <Card className={classes.rootCard} onClick={() => {
-            setPerfil({ id: people.id });
+            setId(people.id);
             history.push({
               pathname: '/perfil'
             });

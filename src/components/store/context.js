@@ -4,6 +4,8 @@ const StoreContext = createContext({
   token: null,
   user: {},
   perfil: {},
+  id: null,
+  setId: () => {},
   setPerfil: () => {},
   setToken: () => {},
   setUser: () => {},

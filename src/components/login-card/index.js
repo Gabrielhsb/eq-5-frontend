@@ -12,7 +12,7 @@ export function LoginCard () {
  const [ email, setEmail] = useState('');
  const [ password, setPassword] = useState('');
  const [ erro, setErro] = useState('');
- const { token, setToken, user, setUser } = useContext(StoreContext);
+ const { token, setToken, setId } = useContext(StoreContext);
  const history = useHistory();
 
 
@@ -26,7 +26,7 @@ export function LoginCard () {
     })
     .then((response) => {
       setToken(response.data.token);
-      setUser(response.data);
+      setId(response.data.id);
     
     })
     .catch((err) => {
