@@ -13,6 +13,7 @@ import React, { useState, useEffect,useContext} from 'react';
 import api from '../../services/api';
 import StoreContext from '../../components/store/context';
 import { useHistory } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles({
   buttonSearch: {
@@ -21,14 +22,32 @@ const useStyles = makeStyles({
     color: '#fff',
     width: 200,
     height: 70,
-    borderRadius: 40,
+    borderRadius: 60,
     boxShadow:' 0 4 16 rgba(0; 0; 0; 0.08)',
     border: 0,
     marginTop: 50,
     cursor: 'pointer',
     fontSize: 17,
     marginBottom: 60,
+    "&:hover":{
+      background: '#8F98FF'
+    }
+  },
+
+  root: {
+    width: "250px",
+    height: "350px",
+    marginLeft: "40px",
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "20px",
+    boxShadow: "0px 4px 25px rgba(0, 0, 0, 0.1)",
+    cursor: "pointer",
+    ['@media (max-width:600px)']: { // eslint-disable-line no-useless-computed-key
+      marginTop: "40px",
+    }
   }
+
 });
 
 export default function Home() {
@@ -36,7 +55,7 @@ export default function Home() {
   const { perfil, setPerfil } = useContext(StoreContext);
   const history = useHistory();
   useEffect(() => {
-    api.get("/user")
+    api.get("/user/favorites")
       .then((res) => (setUserFavorite(res.data)))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -63,7 +82,7 @@ export default function Home() {
 
             <div className={styles.cards}>
             {userFavorite.map((people, index) =>
-            <Card className={styles.root} onClick={() => {
+            <Card className={classes.root} onClick={() => {
               setPerfil({id: people.id});
               history.push({
                 pathname: '/perfil'
@@ -74,7 +93,7 @@ export default function Home() {
                 <div className={styles.CardText}>
                   <h5 className={styles.perfilName}>{people.name}</h5>
                   <h6 className={styles.work}>{people.occupation}</h6>
-                  <button className={styles.button} >{people.category}</button>
+                  <button className={styles.button} >{people.categorie}</button>
                 </div>
               </CardContent>
             </Card>
@@ -90,7 +109,11 @@ export default function Home() {
           <span className={styles.text3}>O autismo não diminui ninguém.<br/>
 Realize pesquisas por categoria e profissão e <br/> escolha os profissionais ideais!
 </span> 
-          <IconButton className={classes.buttonSearch}>PESQUISAR <SearchIcon /></IconButton>
+          <IconButton className={classes.buttonSearch} onClick={() => {
+            history.push({
+              pathname: '/search'
+            });
+          }}>PESQUISAR <SearchIcon /></IconButton>
           </div>
           
             <img src={ilustration2} alt="Ilustração de boas"/>

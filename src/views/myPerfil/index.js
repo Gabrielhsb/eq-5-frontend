@@ -1,11 +1,12 @@
 import styles from './styles.module.scss';
 import people from '../../images/perfil.png';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import LinkIcon from '@material-ui/icons/Link';
 import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import iconPin from '../../images/icons/pin.png';
 import iconTel from '../../images/icons/tel.png';
+import linkIcon from '../../images/icons/link-icon.png';
 import achievementsIcon from '../../images/achievementsIcon.png';
 import image from '../../images/ana-image1.jpg';
 import { Footer } from '../../components/footer';
@@ -13,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import StoreContext from '../../components/store/context';
 import { useState, useContext } from 'react';
 import api from '../../services/api';
+
 
 const useStyles = makeStyles({
   buttonPerfil: {
@@ -28,33 +30,37 @@ const useStyles = makeStyles({
     cursor: 'pointer',
     fontSize: 17,
     marginBottom: 60,
-  }
+
+  },
+  
+
+
 });
-
-
-
-
-
-
 
 export default function MyPerfil() {
   const classes = useStyles();
-  const { user } = useContext(StoreContext);
-  const [userFull, setUserFull] = useState([]);
+
+  const { perfil, setPerfil  } = useContext(StoreContext);
 
   
 
   useEffect(() => {
-    api.get(`/user/${user.id}`)
-      .then((res) => (setUserFull(res.data)))
+    api.get(`/user/${perfil.id}`)
+      .then((res) => (setPerfil(res.data)))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [])
 
-  
+  const [clicked, setClicked] = useState(false);
 
-  var achievements = userFull.achievements?.map((ach, index) =>
+  useEffect(() => {
+    if (clicked) {
+      window.location.assign(perfil.links[0].url);
+    }
+  });
+console.log(perfil)
+  var achievements = perfil.achievements?.map((ach, index) =>
   <div className={styles.achievementsCards}>
     <img src={achievementsIcon} alt="icone de conquista" />
     <div>
@@ -64,13 +70,16 @@ export default function MyPerfil() {
   </div>
 )
 
-var gallery = userFull.imageGallery?.map((img, index) =>
+var gallery = perfil.imageGallery?.map((img, index) =>
     
         <img src={img}/>
    
    
 )
 
+const style = {
+  backgroundImage: `url(${perfil.avatar})`,
+}
 
   return (
 
@@ -78,25 +87,29 @@ var gallery = userFull.imageGallery?.map((img, index) =>
       <div className={styles.banner}>
       </div>
       <div className={styles.content}>
-        <img className={styles.perfilAvatar} src={userFull.avatar} alt="foto de perfil" />
-        <h1>{userFull.name}</h1>
-        <h2>{userFull.categorie}</h2>
+        <div className={styles.perfilAvatar} >
+          <div style={style} alt="foto de perfil" >
+            </div>
+        </div>
+       
+        <h1>{perfil.name}</h1>
+        <h2>{perfil.categorie}</h2>
         <div className={styles.info}>
           <img className={styles.iconImg} src={iconPin} alt="" />
-          <h5> {userFull.city}, {userFull.state}</h5>
+          <h5> {perfil.city}, {perfil.state}</h5>
           <img className={styles.iconImg} src={iconTel} alt="" />
           <h5>  (79) 32820-4281</h5>
         </div>
-        <IconButton className={classes.buttonPerfil} onClick={userFull.links?.url}>{userFull.links?.name}<LinkIcon /></IconButton>
+        <Button className={classes.buttonPerfil} endIcon={<LinkIcon/>} onClick={() => setClicked(true)} >{perfil.links[0].name} </Button>
       </div>
       <hr />
 
       <div className={styles.aboutCard}>
         <div className={styles.about}>
           <h2>Sobre Mim</h2>
-          <h4>{user.occupation}</h4>
+          <h4>{perfil.occupation}</h4>
           <h4>62 anos</h4>
-          <span>{user.about}</span>
+          <span>{perfil.description}</span>
         </div>
         <div className={styles.achievements}>
           <h2>Conquistas</h2>

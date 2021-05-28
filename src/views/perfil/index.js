@@ -1,11 +1,12 @@
 import styles from './styles.module.scss';
 import people from '../../images/perfil.png';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import LinkIcon from '@material-ui/icons/Link';
 import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import iconPin from '../../images/icons/pin.png';
 import iconTel from '../../images/icons/tel.png';
+import linkIcon from '../../images/icons/link-icon.png';
 import achievementsIcon from '../../images/achievementsIcon.png';
 import image from '../../images/ana-image1.jpg';
 import { Footer } from '../../components/footer';
@@ -13,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import StoreContext from '../../components/store/context';
 import { useState, useContext } from 'react';
 import api from '../../services/api';
+
 
 const useStyles = makeStyles({
   buttonPerfil: {
@@ -28,7 +30,11 @@ const useStyles = makeStyles({
     cursor: 'pointer',
     fontSize: 17,
     marginBottom: 60,
-  }
+
+  },
+  
+
+
 });
 
 export default function MyPerfil() {
@@ -46,7 +52,13 @@ export default function MyPerfil() {
       });
   }, [])
 
-  
+  const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    if (clicked) {
+      window.location.assign(perfil.links[0].url);
+    }
+  });
 console.log(perfil)
   var achievements = perfil.achievements?.map((ach, index) =>
   <div className={styles.achievementsCards}>
@@ -88,7 +100,7 @@ const style = {
           <img className={styles.iconImg} src={iconTel} alt="" />
           <h5>  (79) 32820-4281</h5>
         </div>
-        <IconButton className={classes.buttonPerfil} onClick={perfil.links?.url}>{perfil.links?.name}<LinkIcon /></IconButton>
+        <Button className={classes.buttonPerfil} endIcon={<LinkIcon/>} onClick={() => setClicked(true)} >{perfil.links[0].name} </Button>
       </div>
       <hr />
 
@@ -97,7 +109,7 @@ const style = {
           <h2>Sobre Mim</h2>
           <h4>{perfil.occupation}</h4>
           <h4>62 anos</h4>
-          <span>{perfil.about}</span>
+          <span>{perfil.description}</span>
         </div>
         <div className={styles.achievements}>
           <h2>Conquistas</h2>
