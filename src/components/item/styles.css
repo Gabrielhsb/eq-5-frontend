@@ -29,4 +29,9 @@
   height: 60px;
   font-size: 17px;
   }
+    .menu-item{
+      height:50px;
+      width: 125px;
+      font-size:14px;
+    }
 }

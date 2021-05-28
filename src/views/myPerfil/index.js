@@ -98,9 +98,9 @@ const style = {
           <img className={styles.iconImg} src={iconPin} alt="" />
           <h5> {perfil.city}, {perfil.state}</h5>
           <img className={styles.iconImg} src={iconTel} alt="" />
-          <h5>  (79) 32820-4281</h5>
+          <h5>  {perfil.phone}</h5>
         </div>
-        <Button className={classes.buttonPerfil} endIcon={<LinkIcon/>} onClick={() => setClicked(true)} >{perfil.links[0].name} </Button>
+        <Button className={classes.buttonPerfil} endIcon={<LinkIcon/>} onClick={() => setClicked(true)} >{perfil.links[0]?.name} </Button>
       </div>
       <hr />
 
@@ -108,7 +108,7 @@ const style = {
         <div className={styles.about}>
           <h2>Sobre Mim</h2>
           <h4>{perfil.occupation}</h4>
-          <h4>62 anos</h4>
+          <h4>{perfil.age} anos</h4>
           <span>{perfil.description}</span>
         </div>
         <div className={styles.achievements}>

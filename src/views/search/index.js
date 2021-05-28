@@ -3,34 +3,33 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Footer } from '../../components/footer';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import React, { useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Item from '../../components/item/index';
 import search from '../../images/icons/search.png';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 import StoreContext from '../../components/store/context';
+import { makeStyles } from '@material-ui/core/styles';
 
 
-const list = [
-  { name: 'Todos' },
-  { name: 'Tecnologia' },
-  { name: 'Serviços Gerais' },
-  { name: 'Educação' },
-  { name: 'Culinária' },
-  { name: 'Artesanato' },
-  { name: 'Beleza' },
-  { name: 'Design' },
-  { name: 'item9' }
-];
+const useStyles = makeStyles({
+  rootCard: {
+    cursor: "pointer",
+    minWidth: "450px",
+    minHeight: "220px",
+    borderRadius: "20px",
+    marginLeft: "9%",
+    marginTop: "50px",
+    display: "flex",
+    boxShadow: "0px 4px 25px rgba(0, 0, 0, 0.1)",
+    ['@media (max-width:600px)']: { // eslint-disable-line no-useless-computed-key
+      minWidth: "350px",
+      marginLeft: "1",
+     
+      }
+  },
 
-
-export const Menu = (list, selected) =>
-  list.map(el => {
-    const { name } = el;
-
-    return <Item title={name} key={name} selected={selected} />;
-  });
-
+});
 const Arrow = ({ text, className }) => {
   return (
     <div
@@ -45,18 +44,16 @@ const ArrowRight = Arrow({ text: '>', className: styles.arrowNext });
 
 
 export default function Search() {
+  const classes = useStyles();
   const { setPerfil } = useContext(StoreContext);
   const [selected, setSelected] = useState('');
   const [occupation, setOccupation] = useState('');
-  const menuItems = Menu(list, selected);
+  const [list, setList] = useState([]);
   const [users, setUsers] = useState([]);
-  const [filterUsers, setFilterUsers] = useState([]);
-  const todos = 'Todos';
   const history = useHistory();
 
 
- 
-
+  const menuItems = list.map(element => <Item title={element} key={element} selected={selected} />);
 
   function onChange(event) {
     const { value } = event.target;
@@ -71,22 +68,42 @@ export default function Search() {
 
 
   async function searchInput(occupation) {
- 
+
     const params = new URLSearchParams([['occupation', occupation]])
     api.get("/user", { params })
-      .then((res) => (setFilterUsers(res.data)))
+      .then((res) => (setUsers(res.data)))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }
 
-  function onSelect(key) {
+  async function onSelect(categorie) {
 
-    if (key === "Todos") {
-      setFilterUsers(users);
+    if (categorie === "Todos") {
+      api.get("/user")
+        .then((res) => (setUsers(res.data)))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
+    } else if (categorie === selected) {
+      setSelected('');
+      api.get("/user")
+        .then((res) => (setUsers(res.data)))
+        .catch((err) => {
+          setUsers([]);
+        });
+
     } else {
-      setFilterUsers(users.filter(function (obj) { return obj.categorie === key; }));
+      setSelected(categorie);
+      const params = new URLSearchParams([['categorie', categorie]])
+      api.get("/user", { params })
+        .then((res) => (setUsers(res.data)))
+        .catch((err) => {
+          setUsers([]);
+        });
     }
+
+
   }
   const menu = menuItems;
 
@@ -96,8 +113,15 @@ export default function Search() {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  },[])
+  }, [])
 
+  useEffect(() => {
+    api.get("/categories")
+      .then((res) => (setList(res.data)))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, [])
   return (
     <div className={styles.searchContainer}>
       <div className={styles.textArea}>
@@ -124,10 +148,10 @@ export default function Search() {
       </div>
 
       <div className={styles.cards} >
-        
-        {filterUsers ? filterUsers.map((people, index) =>
-          <Card className={styles.rootCard}  onClick={() => {
-            setPerfil({id: people.id});
+
+        {users.map((people, index) =>
+          <Card className={classes.rootCard} onClick={() => {
+            setPerfil({ id: people.id });
             history.push({
               pathname: '/perfil'
             });
@@ -142,23 +166,7 @@ export default function Search() {
             </CardContent>
           </Card>
         )
-          : users.map((people, index) =>
-            <Card className={styles.rootCard} onClick={() => {
-              setPerfil({id: people.id});
-              history.push({
-                pathname: '/perfil'
-              });
-            }}>
-              <CardContent className={styles.cardContent} >
-                <img src={people.avatar} alt="avatar" />
-                <div className={styles.CardText}>
-                  <h1>{people.name}</h1>
-                  <h3>{people.occupation}</h3>
-                  <h3>{people.city}, {people.state}</h3>
-                </div>
-              </CardContent>
-            </Card>
-          )
+
         }
       </div>
       <Footer />
