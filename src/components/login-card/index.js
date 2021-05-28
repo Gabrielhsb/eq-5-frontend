@@ -41,8 +41,7 @@ export function LoginCard () {
     if(token){
 
       return history.push({
-        pathname: '/meu-perfil',
-        state: {user: 'user'}
+        pathname: '/meu-perfil'
       });
     }
   }

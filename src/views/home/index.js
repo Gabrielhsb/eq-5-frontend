@@ -9,8 +9,10 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { Footer } from '../../components/footer';
 import { makeStyles } from '@material-ui/core/styles';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext} from 'react';
 import api from '../../services/api';
+import StoreContext from '../../components/store/context';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   buttonSearch: {
@@ -31,8 +33,8 @@ const useStyles = makeStyles({
 
 export default function Home() {
   const [ userFavorite, setUserFavorite] = useState([]);
-
-
+  const { perfil, setPerfil } = useContext(StoreContext);
+  const history = useHistory();
   useEffect(() => {
     api.get("/user")
       .then((res) => (setUserFavorite(res.data)))
@@ -41,6 +43,7 @@ export default function Home() {
       });
   },[])
 
+ 
   const classes = useStyles();
   return (
     <div className={styles.homeContainer1}>
@@ -60,7 +63,12 @@ export default function Home() {
 
             <div className={styles.cards}>
             {userFavorite.map((people, index) =>
-            <Card className={styles.root} >
+            <Card className={styles.root} onClick={() => {
+              setPerfil({id: people.id});
+              history.push({
+                pathname: '/perfil'
+              });
+            }}>
               <CardContent className={styles.content} >
                 <CardMedia className={styles.media} image={people.avatar} alt="avatar" />
                 <div className={styles.CardText}>

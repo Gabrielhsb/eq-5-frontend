@@ -3,11 +3,12 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Footer } from '../../components/footer';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import Item from '../../components/item/index';
 import search from '../../images/icons/search.png';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
+import StoreContext from '../../components/store/context';
 
 
 const list = [
@@ -44,6 +45,7 @@ const ArrowRight = Arrow({ text: '>', className: styles.arrowNext });
 
 
 export default function Search() {
+  const { setPerfil } = useContext(StoreContext);
   const [selected, setSelected] = useState('');
   const [occupation, setOccupation] = useState('');
   const menuItems = Menu(list, selected);
@@ -53,9 +55,7 @@ export default function Search() {
   const history = useHistory();
 
 
-  function callperfil(id){
-    return history.push('/perfil', [id]);
-  }
+ 
 
 
   function onChange(event) {
@@ -96,7 +96,7 @@ export default function Search() {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  })
+  },[])
 
   return (
     <div className={styles.searchContainer}>
@@ -123,10 +123,16 @@ export default function Search() {
         />
       </div>
 
-      <div className={styles.cards}>
+      <div className={styles.cards} >
+        
         {filterUsers ? filterUsers.map((people, index) =>
-          <Card className={styles.rootCard} >
-            <CardContent className={styles.cardContent} onClick={callperfil(people.id)}>
+          <Card className={styles.rootCard}  onClick={() => {
+            setPerfil({id: people.id});
+            history.push({
+              pathname: '/perfil'
+            });
+          }}>
+            <CardContent className={styles.cardContent} >
               <img src={people.avatar} alt="avatar" />
               <div className={styles.CardText}>
                 <h1>{people.name}</h1>
@@ -137,8 +143,13 @@ export default function Search() {
           </Card>
         )
           : users.map((people, index) =>
-            <Card className={styles.rootCard} >
-              <CardContent className={styles.cardContent} onClick={callperfil(people.id)}>
+            <Card className={styles.rootCard} onClick={() => {
+              setPerfil({id: people.id});
+              history.push({
+                pathname: '/perfil'
+              });
+            }}>
+              <CardContent className={styles.cardContent} >
                 <img src={people.avatar} alt="avatar" />
                 <div className={styles.CardText}>
                   <h1>{people.name}</h1>

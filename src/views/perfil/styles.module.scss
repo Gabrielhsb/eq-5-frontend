@@ -3,8 +3,27 @@
   min-width:1440px;
   min-height:300px;
   margin-top: -8px;
+  
 }
+.perfilAvatar{
+  div{
+    width:250px;
+    height:250px;
+    margin-top: -125px;
+    border-radius: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid;
+    border-color:#6866CC;
+  }
+  img{
+    border: solid;
+    border-color:#6866CC;
 
+  }
+
+}
 .content {
   font-family: nunito;
   display: flex;
@@ -16,10 +35,13 @@
     display: flex;
     gap: 20px;
   }
+
   img{
     width:250px;
     height:250px;
     margin-top: -125px;
+    border-radius: 150px;
+
   }
 
   h1 {
