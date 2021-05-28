@@ -1,0 +1,31 @@
+
+
+
+.carousel-prev, .carousel-next {
+
+  color: #6866CC;
+  width: 190px;
+  height: 100%;
+}
+
+.carousel-prev:before{
+  background-image: url("../../images/prev.png");
+  height: 60px;
+  width: 50px;
+}
+.carousel-next:before {
+  background-image: url("../../images/next.png");
+  height: 100px;
+  width: 50px;
+}
+
+
+.carousel-dots li.carousel-dots-active button:before{
+  color: #6866CC;
+}
+
+@media (max-width: 600px) {
+  .carousel-prev, .carousel-next{
+    display: none;
+  }
+}

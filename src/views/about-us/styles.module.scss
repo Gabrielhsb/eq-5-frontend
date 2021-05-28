@@ -5,8 +5,9 @@
   gap: 10%;
   
   h1{
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 100;
+    line-height: 50px;
   }
   .imageOne {
     margin-right: 200px;
@@ -28,7 +29,7 @@
   gap: 10%;
 
   h1{
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 100;
   }
 
@@ -51,7 +52,7 @@
   gap: 20%;
   margin-bottom: 100px;
   h1{
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 100;
   }
   .imageThree {
@@ -70,9 +71,127 @@
 .purpleText {
   color: #6866CC;
 }
+.partners{
+  font-family: 'Nunito';
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  h1{
+    font-size: 50px;
+    font-weight: 100;
+  }
+}
+
+
+
+.slideOne, .slideTwo{
+ font-family: 'Nunito';
+ display: flex;
+ align-items:center;
+ justify-content: center;
+ 
+}
+
+.partners{
+  span{
+    color: #6866CC;
+  }
+}
+
+.partnersTwo{
+  margin-top: 60px;
+  margin-bottom: 170px;
+}
+.slider{
+ 
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 80px;
+ 
+  .image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 100px;
+    h3{
+      color: #6866CC;
+      font-weight: 800;
+      margin-top: 40px;
+    }
+  }
+}
+
+.text{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h3{
+    color: #6866CC;
+    margin-top: -20px;
+    margin-bottom: 0;
+    
+  }
+  span{
+    margin-bottom: 10px;
+  }
+  h4{
+    margin-top: 4;
+    font-weight: 300;
+  }
+  .as{
+    margin-left: -40px;
+  }
+
+  .as2{
+    margin-left: 370px;
+  }
+
+}
 
 @media (max-width:600px){
- 
+  .partners{
+    h1{
+      font-size: 40px;
+      margin-top: 90px;
+    }
+    span{
+      color: #6866CC;
+    }
+  }
+
+  .partnersTwo{
+    margin-bottom: 40px;
+  }
+  .slider {
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    .carousel-next{
+      display: none;
+    }
+    .image {
+      margin-right: 0px;
+    }
+    .text{
+      span{
+        margin-bottom: 60px;
+        font-size: 15px;
+      }
+
+      padding: 15px;
+      img{
+        display:none;
+      }
+    }
+  }
+
+
+
+
+
   .containerOne, .containerThree{
     
     display: inline;

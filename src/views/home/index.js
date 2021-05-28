@@ -74,7 +74,7 @@ export default function Home() {
                 <div className={styles.CardText}>
                   <h5 className={styles.perfilName}>{people.name}</h5>
                   <h6 className={styles.work}>{people.occupation}</h6>
-                  <button className={styles.button} >{people.occupation}</button>
+                  <button className={styles.button} >{people.category}</button>
                 </div>
               </CardContent>
             </Card>
