@@ -59,6 +59,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
+  
 
   h3 {
     font-family: Nunito;
@@ -85,7 +86,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7%;
+  gap: 2%;
   margin: 0;
   margin-bottom: 5%;
   width: 100%;
@@ -110,6 +111,8 @@
   margin-left: 40px;
   display: flex;
   justify-content: center;
+  border-radius: 40px;
+  
 }
 
 .content {
@@ -125,6 +128,7 @@
   margin-top: 20px;
   height: 120px;
   width: 120px;
+  border-radius: 60px;
 }
 .perfilName {
   font-size: 15px;
@@ -140,11 +144,17 @@
 .button {
   background: #E6E8FF;
   border-radius: 40px;
-  width:  95px;
+  width:  100px;
   height: 30px;
   border: none;
-  font-size: 12px;
+  font-size: 11px;
   font-family: Nunito;
+
+
+}
+
+.button:hover{
+  background: #8F98FF;
 }
 
 .divTextFinal {
@@ -223,6 +233,7 @@
 
 
   .highlights {
+    box-sizing: border-box;
     .cards{
     display: flex;
     flex-wrap: wrap;
@@ -256,8 +267,8 @@
     }
     .button {
       width: 130px;
-      height: 40px;
-      font-size: 15px;
+      height: 50px;
+      font-size: 14px;
     }
   }
 
