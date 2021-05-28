@@ -86,17 +86,6 @@ input:focus,select:focus {
   }
 }
 
-.rootCard {
-  cursor: pointer;
-  min-width: 450px;
-  min-height: 220px;
-  border-radius: 30px;
-  margin-left: 9%;
-  margin-top: 50px;
-  display: flex;
-  
-}
-
 .works {
   margin-top: 50px;
   margin-left: 8px;
@@ -125,10 +114,10 @@ input:focus,select:focus {
   }
 }
 
-
-
-
 @media (max-width:600px){
+  .cards {
+    margin-top:0;
+  }
   .searchContainer{
     box-sizing: border-box;
   }
@@ -156,7 +145,11 @@ input:focus,select:focus {
       width:90%;
       height: 35px;
     }
-
+    .CardText {
+      h1{
+        font-size:0px;
+      }
+    }
     
   }
   .searchForm{
@@ -164,10 +157,7 @@ input:focus,select:focus {
       display: none;
     }
   }
-  .cards{
-    margin-top: 5px;
-    flex-direction: column;
-  }
+
 
 
 
