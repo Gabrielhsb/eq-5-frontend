@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 
 });
 
-export default function MyPerfil() {
+export default function Perfil() {
   const classes = useStyles();
 
   const { perfil, setPerfil, idPerfil } = useContext(StoreContext);
