@@ -109,7 +109,7 @@ export default function MyPerfil() {
         <div className={styles.gallery}>
           <h2>Galeria</h2>
           <div className={styles.galleryCard}>
-            {perfil?.imageGallery?.map((img, index) => <img key={index} src={img} />)}
+            {perfil?.imageGallery?.map((img, index) => <img key={index} src={img} alt="Galeria"/>)}
           </div>
         </div>
         <Footer />

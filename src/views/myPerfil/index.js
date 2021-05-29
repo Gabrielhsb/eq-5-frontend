@@ -64,7 +64,7 @@ export default function MyPerfil() {
     </div>
   )
 
-  const gallery = user?.imageGallery?.map((img, index) => <img key={index} src={img} />)
+  const gallery = user?.imageGallery?.map((img, index) => <img key={index} src={img} alt="galeria" />)
 
   const style = {
     backgroundImage: `url(${user?.avatar})`,

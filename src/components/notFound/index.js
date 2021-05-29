@@ -1,4 +1,3 @@
-import styles from "./styles.module.scss";
 import fail from "../../images/fail.png";
 
 export default function NotFound(){

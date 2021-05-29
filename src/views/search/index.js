@@ -141,7 +141,7 @@ if (categorie === selected) {
         />
       </div>
         <div className={styles.notFound}>
-        {(users.length == 0 && <NotFound/>)}
+        {(users.length === 0 && <NotFound/>)}
         </div>
       <div className={styles.cards} >
         {users.map((people, index) =>
