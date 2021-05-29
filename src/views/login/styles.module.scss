@@ -1,23 +1,19 @@
-
-
 .container {
- height: 100%;
- overflow: hidden;
- padding-bottom: 10%;
-padding-top: 10%;
-
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 10%;
+  padding-top: 10%;
 }
 
-.background{
+.background {
   background-image: url(../../images/background-login.png);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
-  background-size: rem;
 }
 .loginCard {
   position: absolute;
   left: 25%;
-  top: 44%;
+  top: 28%;
   z-index: 2;
 }
 
@@ -26,16 +22,14 @@ padding-top: 10%;
   top: 50%;
   left: 50%;
   z-index: 1;
-  
 }
 
-@media(min-width: 600px){
-  .mobileLogin{
+@media (min-width: 600px) {
+  .mobileLogin {
     display: none;
   }
 }
-@media (max-width:600px){
-
+@media (max-width: 600px) {
   .container {
     display: flex;
     justify-content: center;
@@ -46,65 +40,60 @@ padding-top: 10%;
     .signUpCard {
       display: none;
     }
-    .loginCard{
-      display: none;
 
+    .loginCard {
+      display: flex;
+      position: inherit;
     }
   }
- .footer{
-   margin-top: 0%;
-   background-color: #fff;
- }
+  .footer {
+    background-color: #fff;
+  }
 
- .mobileLogin{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   .title {
-    font-size: 35px;
-    color: #6866CC;
-    font-family: Nunito ;
-    font-weight: 100px;
-    
-  }
-  .input {
-    border: 2px solid #6866CC;
-    box-shadow: 0px 4px 25px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    width: 250px;
-    height: 35px;
-  
-  }
-  .form {
-    padding-top: 10px;
+  .mobileLogin {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
+    .title {
+      font-size: 35px;
+      color: #6866cc;
+      font-family: Nunito;
+      font-weight: 100px;
+    }
+    .input {
+      border: 2px solid #6866cc;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      width: 250px;
+      height: 35px;
+    }
+    .form {
+      padding-top: 10px;
+      align-items: center;
+    }
+    .button {
+      background: #6866cc;
+      color: #fff;
+      width: 120px;
+      height: 43px;
+      border-radius: 40px;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+      border: 0px;
+      margin-top: 50;
+      align-items: center;
+      justify-self: center;
+      cursor: pointer;
+      margin-top: 30px;
+      margin-left: 70px;
+    }
+
+    .divLabel {
+      text-align: left;
+      margin-top: 30;
+    }
   }
-  .button {
-    background: #6866CC;
-    color: #fff;
-    width: 120px;
-    height: 43px;
-    border-radius: 40px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
-    border: 0px;
-    margin-top: 50;
-    align-items: center;
-    justify-self: center;
-    cursor: pointer;
-    margin-top:30px;
-    margin-left:70px;
-  }
-  
-  .divLabel {
-    text-align: left;
-    margin-top: 30;
-  }
- }
 }
-
-
-
-
-

@@ -1,8 +1,8 @@
-.welcome{
+.welcome {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
+
   h4 {
     font-family: Nunito;
     font-style: normal;
@@ -10,12 +10,11 @@
     font-size: 34px;
     line-height: 40px;
     margin-top: 0;
+    margin-left: 30px;
   }
-
-
 }
 
-.ilustration{
+.ilustration {
   img {
     width: 100%;
     height: 100%;
@@ -27,7 +26,7 @@
   font-weight: 300;
   font-size: 4rem;
   line-height: 60px;
-  margin-left: 0px;
+  margin-left: 30px;
 }
 
 .titleTwo {
@@ -38,28 +37,27 @@
   line-height: 60px;
   margin-top: 0px;
   margin-bottom: 0px;
-  color: #6866CC;
+  color: #6866cc;
 }
 
 .titleThree {
   font-family: Nunito;
   font-style: normal;
   font-weight: 300;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 60px;
-  margin-left: 0px;
+  margin-left: 40px;
   margin-bottom: 14px;
 }
-.highlights{
+.highlights {
   margin-top: 150px;
-  background-color: #E5E8FF;
+  background-color: #e5e8ff;
   width: 100%;
   height: 150%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
-  
 
   h3 {
     font-family: Nunito;
@@ -67,7 +65,7 @@
     font-weight: 300;
     font-size: 48px;
     line-height: 52px;
-    color: #6866CC;
+    color: #6866cc;
   }
 
   .textH5 {
@@ -78,7 +76,7 @@
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-    color: #1A1A1A;
+    color: #1a1a1a;
   }
 }
 
@@ -91,18 +89,17 @@
   margin-bottom: 5%;
   width: 100%;
   height: 100%;
-  
 }
 .text2 {
   position: absolute;
   margin-left: 90px;
   margin-top: 90px;
-  
 }
 .text3 {
   margin-top: 0px;
   font-family: Nunito;
   font-style: normal;
+  margin-left: 40px;
 }
 
 .root {
@@ -112,7 +109,6 @@
   display: flex;
   justify-content: center;
   border-radius: 40px;
-  
 }
 
 .content {
@@ -132,7 +128,7 @@
 }
 .perfilName {
   font-size: 15px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   font-weight: 600px;
 }
 .work {
@@ -142,19 +138,17 @@
 }
 
 .button {
-  background: #E6E8FF;
+  background: #e6e8ff;
   border-radius: 40px;
-  width:  100px;
+  width: 100px;
   height: 30px;
   border: none;
   font-size: 11px;
   font-family: Nunito;
-
-
 }
 
-.button:hover{
-  background: #8F98FF;
+.button:hover {
+  background: #8f98ff;
 }
 
 .divTextFinal {
@@ -163,29 +157,10 @@
   margin-left: 0;
 }
 
-.buttonSearch {
-  background: #6866CC;
-  color: #fff;
-  width: 200px;
-  height: 64px;
-  border-radius: 40px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
-  border: 0px;
-  margin-top: 50;
-  cursor: pointer;
-  margin-top:30px;
-  font-size: 17px;
-  &:hover {
-    background-color:#7c7aec ;
-  }
-
-
-}
-
 .homeContainer {
   display: flex;
   justify-content: space-around;
-  gap:20%;
+  gap: 1%;
   margin-top: 8%;
   width: 100%;
   height: 100%;
@@ -199,8 +174,9 @@
 }
 
 @media (max-width: 600px) {
-  .homeContainer1{
+  .homeContainer1 {
     box-sizing: border-box;
+    margin: 0;
   }
   .homeContainer {
     display: flex;
@@ -212,43 +188,40 @@
     display: flex;
     align-items: center;
 
-    h1{
-      
+    h1 {
       font-size: 40px;
       margin-top: 0px;
       margin-bottom: 0px;
       line-height: 40px;
     }
-   
+
     h4 {
-      
       font-size: 20px;
       line-height: 29px;
     }
     img {
       width: 50px;
-      height:50px;
+      height: 50px;
     }
   }
-
 
   .highlights {
     box-sizing: border-box;
-    .cards{
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10%;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10%;
     }
     h3 {
-      font-size:40px;
+      font-size: 40px;
       margin-bottom: 4px;
       margin-top: 4px;
     }
-    .textH5{
+    .textH5 {
       font-size: 20px;
     }
   }
- 
+
   .root {
     width: 350px;
     height: 450px;
@@ -263,7 +236,7 @@
       font-size: 30px;
     }
     .work {
-      font-size:  15px;
+      font-size: 15px;
     }
     .button {
       width: 130px;
@@ -272,10 +245,10 @@
     }
   }
 
-  .content{
+  .content {
     max-width: 100%;
   }
-  
+
   .homeSearch {
     display: flex;
     flex-wrap: wrap;
@@ -283,6 +256,10 @@
     h1 {
       font-size: 40px;
       line-height: 40px;
+    }
+
+    img {
+      width: 300px;
     }
   }
 }
@@ -301,10 +278,10 @@
     align-items: center;
   }
   .highlights {
-    .cards{
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10%;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10%;
     }
   }
 
@@ -317,4 +294,3 @@
     }
   }
 }
-
