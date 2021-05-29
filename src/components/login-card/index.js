@@ -44,7 +44,7 @@ useEffect(() => {
     event.preventDefault();
     login(email, password);
   }
-
+  console.log(erro)
   return (
     <div>
     <Card className={styles.root} >
@@ -55,12 +55,12 @@ useEffect(() => {
           <form className={styles.form} onSubmit={onSubmit}>
             <div className={styles.divLabel}>
               <label >Email</label><br/>
-              <input className={styles.input}  type="email" name="email" onChange={(e) => setEmail(e.target.value)} value={email}/><br/>
+              <input className={erro ? styles.inputError : styles.input}  type="email" name="email" onChange={(e) => setEmail(e.target.value)} value={email}/><br/>
             </div>
             <div className={styles.divLabel2}>
               <label >Senha</label><br/>
-              <input className={styles.input}  type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
-              <span>{erro ? `Falha no login!` : ''}</span>
+              <input className={erro ? styles.inputError : styles.input}  type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password}/><br/>
+              <span className={styles.error} >{erro ? `Credenciais inválidas!` : ''}</span>
             </div>
             <input className={styles.button} type="submit" value="ENTRAR"/>
           </form>

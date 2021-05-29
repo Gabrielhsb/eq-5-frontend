@@ -10,7 +10,7 @@ import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
 import StoreContext from '../../components/store/context';
 import { makeStyles } from '@material-ui/core/styles';
-
+import  NotFound from '../../components/notFound/index';
 
 const useStyles = makeStyles({
   rootCard: {
@@ -140,9 +140,10 @@ if (categorie === selected) {
           onSelect={onSelect}
         />
       </div>
-
+        <div className={styles.notFound}>
+        {(users.length == 0 && <NotFound/>)}
+        </div>
       <div className={styles.cards} >
-
         {users.map((people, index) =>
           <Card key={index} className={classes.rootCard} onClick={() => {
             setIdPerfil(people.id);

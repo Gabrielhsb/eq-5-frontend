@@ -23,11 +23,27 @@
    width: 250px;
    height: 35px;
    padding-left: 20px;
+
+   
  
+ }
+ .inputError{
+  border: 2px solid #e90000;
+  background: #FEE6E6;
+  box-shadow: 0px 4px 25px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width: 250px;
+  height: 35px;
+  padding-left: 20px;
  }
  .form {
    padding-top: 10px;
  }
+
+  .error {
+    
+    color: #e90000;
+  }
  .button {
    background: #6866CC;
    color: #fff;
@@ -36,12 +52,15 @@
    border-radius: 40px;
    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
    border: 0px;
-   margin-top: 50;
+   margin-top: 30;
    align-items: center;
    cursor: pointer;
    margin-top:30px;
  }
 
+ .button:hover {
+   background: #8F98FF;
+ }
  .divLabel {
    text-align: left;
  }

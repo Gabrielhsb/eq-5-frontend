@@ -51,7 +51,9 @@
    align-items: center;
    cursor: pointer;
  }
-
+ .button:hover {
+   background: #80D2FF;
+ }
  .divLabel {
    text-align: left;
    margin-top: 24px;

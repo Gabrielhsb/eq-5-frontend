@@ -26,15 +26,26 @@ const useStyles = makeStyles({
     fontSize: 17,
     marginBottom: 60,
 
+    "&:hover" : {
+      background: "#8F98FF",
+    }
   },
+
 
 });
 
 export default function MyPerfil() {
   const classes = useStyles();
 
-  const { user, setUser, perfil, setPerfil, idPerfil } = useContext(StoreContext);
+  const { perfil, setPerfil, idPerfil } = useContext(StoreContext);
 
+  const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    if (clicked) {
+      window.location.assign(perfil?.links[0].url);
+    }
+  });
 
   useEffect(() => {
     api.get(`/user/${idPerfil}`)
@@ -44,13 +55,6 @@ export default function MyPerfil() {
       });
   }, []);
 
-  const [clicked, setClicked] = useState(false);
-
-  useEffect(() => {
-    if (clicked) {
-      window.location.assign(perfil.links[0].url);
-    }
-  }, []);
 
 
   const style = {

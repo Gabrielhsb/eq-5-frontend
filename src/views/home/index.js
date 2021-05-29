@@ -50,7 +50,7 @@ const useStyles = makeStyles({
 
 export default function Home() {
   const [ userFavorite, setUserFavorite] = useState([]);
-  const { perfil, setPerfil } = useContext(StoreContext);
+  const {  setIdPerfil } = useContext(StoreContext);
   const history = useHistory();
   useEffect(() => {
     api.get("/user/favorites")
@@ -81,7 +81,7 @@ export default function Home() {
             <div className={styles.cards}>
             {userFavorite.map((people, index) =>
             <Card className={classes.root} onClick={() => {
-              setPerfil({id: people.id});
+              setIdPerfil(people.id);
               history.push({
                 pathname: '/perfil'
               });

@@ -34,4 +34,10 @@
       width: 125px;
       font-size:14px;
     }
+    .menu-item-active{
+      height:50px;
+      width: 125px;
+      
+
+    }
 }

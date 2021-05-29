@@ -36,6 +36,7 @@ export default function MyPerfil() {
   const { user, setUser, idUser } = useContext(StoreContext);
 
 
+
   useEffect(() => {
     api.get(`/user/${idUser}`)
       .then((res) => (setUser(res.data)))
@@ -50,7 +51,7 @@ export default function MyPerfil() {
     if (clicked) {
       window.location.assign(user.links[0].url);
     }
-  },[]);
+  });
 
 
   const achievements = user?.achievements?.map((ach, index) =>

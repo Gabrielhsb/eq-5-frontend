@@ -175,3 +175,15 @@ input:focus,select:focus {
   cursor: pointer;
 }
 
+.notFound{
+  display: flex;
+  align-items: center;
+  margin-left: 130px;
+  margin-top: 100px;
+  img{
+    width: 70%;
+    height: 70%;
+
+  }
+
+}
