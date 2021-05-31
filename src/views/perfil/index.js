@@ -98,7 +98,7 @@ export default function Perfil() {
                 <div key={index} className={styles.achievementsCards}>
                   <img src={achievementsIcon} alt="icone de conquista" />
                   <div>
-                    <h5>{ach.description}</h5>
+                    <h5>{ach.name}</h5>
                     <span>{ach.date}</span>
                   </div>
                 </div>
