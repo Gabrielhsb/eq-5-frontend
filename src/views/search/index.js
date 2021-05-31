@@ -10,7 +10,7 @@ import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import StoreContext from "../../components/store/context";
 import { makeStyles } from "@material-ui/core/styles";
-import NotFound from "../../components/notFound/index";
+import NotFound from "../../components/not-found/index";
 
 const useStyles = makeStyles({
   rootCard: {

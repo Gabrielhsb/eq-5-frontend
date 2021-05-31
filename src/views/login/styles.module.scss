@@ -13,7 +13,7 @@
 .loginCard {
   position: absolute;
   left: 25%;
-  top: 28%;
+  top: 44%;
   z-index: 2;
 }
 
@@ -24,11 +24,6 @@
   z-index: 1;
 }
 
-@media (min-width: 600px) {
-  .mobileLogin {
-    display: none;
-  }
-}
 @media (max-width: 600px) {
   .container {
     display: flex;
@@ -95,5 +90,17 @@
       text-align: left;
       margin-top: 30;
     }
+  }
+}
+@media (max-width: 1920px) {
+  .loginCard {
+    left: 32%;
+    top: 37%;
+  }
+}
+@media (max-width: 1366px) {
+  .loginCard {
+    left: 25%;
+    top: 45%;
   }
 }
